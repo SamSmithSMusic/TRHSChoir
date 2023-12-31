@@ -1,56 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSE 121b | Project</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="styles/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRHS Choir | Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
 </head>
-
+  
 <body>
-    <header>
-    <img id="banner" src="https://files.gabbart.com/2417/design_img__90azdc.png">
-    <nav>
-        <ul id="menu">
-        <li><a id="toggleMenu">&equiv;</a></li>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="calendar.html">Calendar</a></li>
-        <li><a href="performances.html">Performances</a></li>
-        </ul>
-    </nav>
-    </header>
-  <main id="gridly">
-    <h1>CSE 121 Project</h1>
-    <h2>Enthusiast Car Information Database</h2>
-
-    <select id="sortBy" title="Choose a data filter.">
-      <option value="" disabled selected>Filter Cars</option>
-      <option value="super">Supercars</option>
-      <option value="enthusiast">Enthusiast Cars</option>
-      <option value="japan">Japanese</option>
-      <option value="usa">American</option>
-      <option value="europe">European</option>
-      <option value="all">All</option>
-    </select>
-
-    <div id="cars">
-    </div>
-  </main>
+      <header>
+      <img id="banner" src="media/trhslogo.png">
+      <nav>
+          <ul id="menu">
+          <li><a id="toggleMenu">&equiv;</a></li>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
+          <li><a href="performances.html">Performances</a></li>
+          </ul>
+      </nav>
+      </header>
 
 
-  <footer>
-    &copy;<span id="year"></span> | Project - End of Year | CSE 121b
-  </footer>
-  <script src="scripts/main.js"></script>
-  <script>
-    document.getElementById("year").innerHTML = new Date().getFullYear();
-  </script>
-  <script type="module" src="scripts/project.js"></script>
+      <footer>
+        &copy;<span id="year"></span> | Thunder Ridge High School Choir | Mary Clayton-Smith
+        <script>
+          document.getElementById("year").innerHTML = new Date().getFullYear();
+        </script>
+      </footer>
 </body>
-
 </html>

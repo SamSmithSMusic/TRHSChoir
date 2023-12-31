@@ -11,24 +11,26 @@
     --offwhite: #ECECEC;
     --black: #141414;
     --lightgrey: #AAA;
+    --darkgrey: #303030;
 }
 
 /* HTML Selectors */
 body {
     font-family: 'Roboto', Helvetica, sans-serif;
-    background-color: var(--offwhite);
+    background-color: var(--darkgrey);
 }
 
 header {
-    display: flex;
-    flex-direction: column;
+    background-color: var(--offwhite);
+}
+
+header img {
+ width: 100%;
 }
 
 nav {
-    margin-top: 250px;
     background-color: var(--black);
     width: 100%;
-    position: fixed;
     top: 0;
 }
 
@@ -83,11 +85,12 @@ h2 {
 }
 
 h1 {
-    border-bottom: 1px solid #ccc;
+    color: var(--offwhite);
+    font-size: 65px;
 }
 
 #gridly h1 {
-    margin-top: 80px;
+    margin: 20px;
 }
 
 h2 {
@@ -100,10 +103,6 @@ h2 {
 h3 {
     font-size: 1.3rem;
     margin-bottom: 1rem;
-}
-
-header {
-    margin-top: 70px;
 }
 
 picture {
@@ -174,7 +173,7 @@ dd {
 }
 
 footer {
-    background-color: #444;
+    background-color: var(--darkblue);
     color: white;
     padding: 15px;
     text-align: center;
@@ -250,20 +249,25 @@ footer {
     appearance: none;
     display: flex;
     padding: .5rem;
-    background-color: #eee;
-    color: #444;
+    background-color: var(--offwhite);
+    color: var(--darkgrey);
     font-weight: 700;
+    font-size: large;
     margin: 1rem auto;
     width: 200px;
-    border: 1px solid rgba(0, 0, 0, .2);
+    border: 1px solid --darkblue;
     text-align: center;
+}
+
+#sortBy:hover {
+    background-color: var(--lightgrey);
 }
 
 #sortBy option:disabled {
     font-style: italic;
     padding: 1rem;
-    background-color: #111;
-    color: #eee;
+    background-color: var(--darkblue);
+    color: var(--offwhite);
 }
 
 #temples {
