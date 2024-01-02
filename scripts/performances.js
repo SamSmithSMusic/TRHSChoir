@@ -122,7 +122,7 @@ const displayBrands = (carList, brandsElement) => {
 
         let songsParagraph = document.createElement('p');
         choirYearData.forEach(car => {
-            songsParagraph.innerHTML += `${car.Song}<br>`;
+            songsParagraph.innerHTML += `${car.Song} (${car.Credit})<br>`;
         });
 
         choirYearArticle.appendChild(songsParagraph);
