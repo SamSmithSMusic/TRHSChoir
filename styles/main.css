@@ -308,14 +308,6 @@ footer {
     color: var(--offwhite);
 }
 
-#temples {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    grid-gap: .5rem;
-    align-items: center;
-    margin-bottom: 3rem;
-}
-
 #cars {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -324,32 +316,7 @@ footer {
     margin-bottom: 3rem;
 }
 
-#temples article {
-    height: 250px;
-    margin: .5rem;
-    border: 1px solid rgba(0, 0, 0, .1);
-    padding: 1rem;
-    background-color: #eee;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-#temples h4 {
-    color: navy;
-    font-size: smaller;
-}
-
-
-#temples img {
-    width: 250px;
-    height: auto;
-    box-shadow: 0 0 30px #777;
-    margin: .5rem;
-}
-
-#cars {
+#brands {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: .5rem;
@@ -369,16 +336,22 @@ footer {
     justify-content: center;
 }
 
-#cars h4 {
-    color: navy;
-    font-size: smaller;
+#brands article {
+    height: auto;
+    margin: .5rem;
+    border: 1px solid rgba(0, 0, 0, .1);
+    padding: 1rem;
+    background-color: var(--offwhite);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-
-#cars img {
+#cars iframe {
     width: 250px;
     height: auto;
-    box-shadow: 0 0 30px #777;
+    box-shadow: 0 0 60px var(--darkblue);
     margin: .5rem;
 }
 
@@ -470,14 +443,6 @@ footer {
         grid-template-columns: 250px 1fr;
         max-width: -moz-fit-content;
         max-width: fit-content;
-    }
-
-    #task3 {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 5px;
-        margin: 0 auto;
-        max-width: 950px;
     }
 
 }

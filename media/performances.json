@@ -30,5 +30,21 @@
         "Credit":"Jake & Malia Newbold",
         "Year":"2023",
         "Source":"https://drive.google.com/file/d/1i_dN-6zt4spizjUYgfGMbAGNIdTu4Et3/preview"
+    },
+    {
+        "Concert": "Summer",
+        "Choir":"Vivace",
+        "Song":"We'll Sing and Shout",
+        "Credit":"Jake & Malia Newbold",
+        "Year":"2023",
+        "Source":"https://drive.google.com/file/d/1i_dN-6zt4spizjUYgfGMbAGNIdTu4Et3/preview"
+    },
+    {
+        "Concert": "Fall",
+        "Choir":"Belle Voix",
+        "Song":"Dance!",
+        "Credit":"Jalia Newbold",
+        "Year":"2022",
+        "Source":"https://drive.google.com/file/d/1i_dN-6zt4spizjUYgfGMbAGNIdTu4Et3/preview"
     }
 ]
