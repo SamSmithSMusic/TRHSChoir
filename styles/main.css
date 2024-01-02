@@ -38,8 +38,7 @@ nav ul {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: -moz-fit-content;
-    max-width: fit-content;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -65,7 +64,7 @@ nav ul li {
 nav ul li a {
     font-size: 20px;
     display: block;
-    padding: 5px 30px;
+    padding: 5px 20px;
     text-decoration: none;
     font-weight: 600;
     color: var(--offwhite);
@@ -77,6 +76,45 @@ nav ul li a:hover {
     background-color: var(--offwhite);
     color: var(--black);
 }
+
+/* Styles for dropdown */
+.dropdown {
+    position: relative;
+  }
+
+  .dropdown-content > li:first-child a{
+    padding: 15px 5px;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--darkgrey);
+    min-width: 160px;
+    z-index: 1;
+    list-style-type: none;
+    padding: 0;
+    border: 5px solid var(--black);
+  }
+  .dropbtn {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    padding: 8px 16px;
+  }
+
+  .dropdown li a {
+    text-align: center;
+    padding: 15px 5px;
+  }
+  
+  .dropdown-content li {
+    border: 1px solid var(--lightblue);
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
 
 h1,
 h2 {
@@ -320,11 +358,11 @@ footer {
 }
 
 #cars article {
-    height: 500px;
+    height: auto;
     margin: .5rem;
     border: 1px solid rgba(0, 0, 0, .1);
     padding: 1rem;
-    background-color: #eee;
+    background-color: var(--offwhite);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -344,8 +382,55 @@ footer {
     margin: .5rem;
 }
 
+.class-header {
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.class-info {
+    grid-column: 1;
+    display:grid;
+    grid-template-columns: 1;
+    grid-template-rows: 2fr 3fr;
+    align-items: center;
+    justify-content: center;
+    max-height: 100%;
+    align-self: stretch;
+    grid-row: 2;
+}
+
+.class-info h1{
+    grid-row: 1;
+}
+
+.class-info p{
+    grid-row: 2;
+    font-size: 25px;
+    color: black;
+    background-color: var(--lightgrey);
+    padding: 20px 20px;
+    margin: 20px 30px;
+}
+
+.class-header img {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    max-width: 1000px;
+}
+
+#development {
+    display: block;
+    padding: 40px;
+    max-width: 300px;
+    margin: auto;
+}
+
 /* Media Queries */
-@media only screen and (min-width: 32.5em) {
+@media only screen and (min-width: 65.5em) {
     nav ul {
         flex-direction: row;
     }
@@ -354,8 +439,26 @@ footer {
         display: none;
     }
 
+    .dropdown-content > li:first-child {
+        display: block;
+    }
+
     nav ul li {
         display: block;
+    }
+
+
+    .class-header {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1;
+
+    }
+    .class-header img {
+        grid-column: 1;
+    }
+    .class-info{
+        grid-column: 2;
+        grid-row: 1;
     }
 
     section {

@@ -1,11 +1,19 @@
 
 const carsElement = document.querySelector("#cars");
 let carList = [];
+let choir = document.title.split('|').map(item => item.trim()).pop();
+
 
 const getCars = async () => {
     const response = await fetch('media/performances.json');
     carList = await response.json()
-    displayCars(carList, carsElement);
+    if (choir == "Archive")
+    {
+        displayCars(carList, carsElement);
+    }
+    else{
+        displayCars(carList.filter(car => car.Choir.includes(choir)), carsElement);
+    }
 }
 
 const reset = () => {
@@ -15,6 +23,20 @@ const reset = () => {
 const sortBy = (cars) => {
     reset();
     let filter = document.querySelector('#sortBy').value;
+
+    if (filter == "all" && choir != "Archive")
+    {
+        displayCars(carList.filter(car => car.Choir.includes(choir)), carsElement);
+    }
+
+    else if (choir != "Archive")
+    {
+        displayCars(cars.filter(car => car.Year.includes(filter) && car.Choir.includes(choir)), carsElement);
+    }
+
+    else
+    {
+        let filter = document.querySelector('#sortBy').value;
     switch (filter) {
         case "2022":
             displayCars(cars.filter(car => car.Year.includes('2022')), carsElement);
@@ -28,6 +50,7 @@ const sortBy = (cars) => {
         case "all":
             displayCars(cars, carsElement);
             break;
+    }
     }
 }
 
@@ -44,7 +67,7 @@ const displayCars = (carList, carsElement) => {
         frame.setAttribute('height','auto')
         frame.setAttribute('autoplay','allow')
         frame.setAttribute('alt',`${car.Concert} ${car.Year} Video`);
-        p.innerHTML = `&bull; Year: ${car.Year}<br>&bull; Engine: ${car.Engine}<br>&bull; Horsepower: ${car.Horsepower}<br>&bull; 0-60 Time: ${car["0-60 Time"]}<br>&bull; Top Speed: ${car["Top Speed"]}<br>&bull; Type: ${car.Type}<br>&bull; Curb Weight: ${car["Curb Weight"]}<br>&bull; Power to Weight Ratio: ${car["Power to Weight Ratio"]}<br>&bull; Drivetrain: ${car.Drivetrain}`;
+        p.innerHTML = `Song: ${car.Song}<br>Choir: ${car.Choir}<br>Credit: ${car.Credit}`;
 
         ar.appendChild(h3);
         ar.appendChild(frame);

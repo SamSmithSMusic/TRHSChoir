@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRHS Choir | Calendar</title>
+    <title>TRHS Choir | Vivace</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap"
@@ -18,7 +18,7 @@
           <ul id="menu">
           <li><a id="toggleMenu">&equiv;</a></li>
           <li><a href="index.html">Home</a></li>
-          <li><a href="calendar.html" class="active">Calendar</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
           <li class="dropdown">
             <a href="#" class="droptn">Classes &#9662;</a>
             <ul class="dropdown-content">
@@ -38,8 +38,27 @@
           </ul>
       </nav>
       </header>
+      <div class="class-header">
+        <img src="media/placeholder.webp" >
+        <div class="class-info">
+            <h1>VIVACE MIXED CHOIR</h1>
+            <p>Vivace is Thunder Ridge’s ADVANCED mixed choir. It is where people go if they enjoy choir, and want to have a high level of performance. It is an honor to be in this class, and here you will have amazing opportunities available, and continue on with growing your music skills. Mixed choir is for the more advanced students, of every vocal part, but don’t let that scare you. Come audition and be a part of Vivace - Thunder Ridge’s advanced mixed choir! (3rd hour class)</p>
+        </div>
+
+      </div>
       
-      <img id="development" src="media/construction.png">
+      <main id="gridly">
+        <select id="sortBy" title="Choose a data filter.">
+          <option value="" disabled selected>Filter Year</option>
+          <option value="2022">2022</option>
+          <option value="2023">2023</option>
+          <option value="2024">2024</option>
+          <option value="all">All Years</option>
+        </select>
+    
+        <div id="cars">
+        </div>
+      </main>
 
       <footer>
         &copy;<span id="year"></span> | Thunder Ridge High School Choir | (210)710-5856 | claytonm@d93mail.com | Director: Mary Clayton-Smith
