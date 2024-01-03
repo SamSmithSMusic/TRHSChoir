@@ -27,7 +27,7 @@
             <li><a href="belle.html">Belle Voix</a></li>
             <li><a href="tenorbass.html">Tenor/Bass</a></li>
             <li><a href="sopranoalto.html">Soprano/Alto</a></li>
-            <li><a href="unavoce.html">Unavoce</a></li>
+            <li><a href="unavoce.html">Una Voce</a></li>
             <li><a href="musictheory.html">Music Theory</a></li>
           </ul>
         </li>
@@ -39,6 +39,18 @@
     </nav>
     </header>
 
+    <div class="carousel">
+      <div class="slides">
+        <img src="media/choirs/Vivace-Formal.jpg" alt="Vivace Choir">
+        <img src="media/choirs/Chamber-Formal.jpg" alt="Chamber Choir">
+        <img src="media/choirs/Belle-Voix-Formal.jpg" alt="Belle Voix Choir">
+        <img src="media/choirs/Una-Voce-Formal.jpg" alt="Una Voce Choir">
+      </div>
+      <button class="prev">❮</button>
+      <button class="next">❯</button>
+    </div>
+    
+
     <img id="development" src="media/construction.png">
 
       <footer>
@@ -47,6 +59,7 @@
           document.getElementById("year").innerHTML = new Date().getFullYear();
         </script>
           <script type="module" src="scripts/main.js"></script>
+          <script type="module" src="scripts/carousel.js"></script>
       </footer>
 </body>
 </html>
