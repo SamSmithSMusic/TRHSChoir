@@ -77,6 +77,34 @@ nav ul li a:hover {
     color: var(--black);
 }
 
+#indexbody {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 4vw 1fr 1vw 1fr 2vw;
+}
+
+#indexbody h1 {
+    font-size: 8vw;
+    grid-column: 1/6;
+}
+
+#indexbody p {
+    grid-column: 1/6;
+    margin: 2vw 4vw;
+    padding: 2vw 2vw;
+    background-color: var(--lightgrey);
+    font-size: 2.5vw;
+}
+
+#indexbody #instapage {
+    grid-column: 2/3;
+    width: 100%;
+}
+
+#ph1 {
+    font-size: 6.5vw;
+}
+
 /* Styles for dropdown */
 .dropdown {
     position: relative;
@@ -427,6 +455,8 @@ footer {
     padding: 20px 20px;
     margin: 20px 30px;
 }
+
+
 
 .class-header img {
     grid-column: 1;
