@@ -318,6 +318,50 @@ footer {
     gap: 1rem;
 }
 
+.class-header {
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: auto;
+    align-items: center;
+    justify-items: center;
+}
+
+.class-info {
+    grid-column: 1;
+    display:grid;
+    grid-template-columns: 1;
+    grid-template-rows: 2;
+    align-items: center;
+    justify-content: center;
+    max-height: 100%;
+    align-self: stretch;
+    grid-row: 2;
+}
+
+.class-info h1{
+    grid-row: 1;
+    max-width: 100%;
+    font-size: 8vw;
+}
+
+.class-info p{
+    grid-row: 2;
+    font-size: 4vw;
+    color: black;
+    background-color: var(--lightgrey);
+    padding: 20px 20px;
+    margin: 20px 30px;
+}
+
+
+
+.class-header img {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    max-width: 1000px;
+}
+
 /* ID Selectors */
 
 #home {
@@ -423,47 +467,7 @@ footer {
     margin: .5rem;
 }
 
-.class-header {
-    display: grid;
-    grid-template-columns: 1;
-    grid-template-rows: auto;
-    align-items: center;
-    justify-content: center;
-}
 
-.class-info {
-    grid-column: 1;
-    display:grid;
-    grid-template-columns: 1;
-    grid-template-rows: 2fr 3fr;
-    align-items: center;
-    justify-content: center;
-    max-height: 100%;
-    align-self: stretch;
-    grid-row: 2;
-}
-
-.class-info h1{
-    grid-row: 1;
-}
-
-.class-info p{
-    grid-row: 2;
-    font-size: 25px;
-    color: black;
-    background-color: var(--lightgrey);
-    padding: 20px 20px;
-    margin: 20px 30px;
-}
-
-
-
-.class-header img {
-    grid-column: 1;
-    grid-row: 1;
-    width: 100%;
-    max-width: 1000px;
-}
 
 #development {
     display: block;
@@ -472,7 +476,35 @@ footer {
     margin: auto;
 }
 
+
+
+/* Responsive iFrame */
+.responsive-iframe-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+ }
+ .responsive-iframe-container iframe,   
+ .responsive-iframe-container object,  
+ .responsive-iframe-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+ }
+
 /* Media Queries */
+
+
+@media (max-width: 550px) {
+    .big-container {
+        display: none;
+    }
+ }
+
 @media only screen and (min-width: 65.5em) {
     nav ul {
         flex-direction: row;
@@ -488,6 +520,10 @@ footer {
 
     nav ul li {
         display: block;
+    }
+
+    .small-container {
+        display: none;
     }
 
     #indexbody p {
@@ -510,6 +546,11 @@ footer {
     .class-info{
         grid-column: 2;
         grid-row: 1;
+    }
+
+    .class-info p 
+    {
+        font-size: 2vw;
     }
 
     section {
