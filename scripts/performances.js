@@ -86,9 +86,9 @@ const displayCars = (carList, carsElement) => {
 
         h3.innerHTML = `${car.Concert} ${car.Year}`;
         frame.setAttribute('src',car.Source);
-        frame.setAttribute('width','auto')
-        frame.setAttribute('height','auto')
-        frame.setAttribute('autoplay','allow')
+        frame.setAttribute('width','100%');
+        frame.setAttribute('height','100%');
+        frame.setAttribute('autoplay','allow');
         frame.setAttribute('alt',`${car.Concert} ${car.Year} Video`);
         p.innerHTML = `Song: ${car.Song}<br>Choir: ${car.Choir}<br>Credit: ${car.Credit}`;
 
