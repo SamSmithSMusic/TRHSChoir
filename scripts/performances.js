@@ -79,23 +79,27 @@ const sortBy = (cars) => {
 
 const displayCars = (carList, carsElement) => {
     carList.forEach(car => {
-        let ar = document.createElement('article');
-        let h3 = document.createElement('h3');
-        let frame = document.createElement('iframe');
-        let p = document.createElement('p');
 
-        h3.innerHTML = `${car.Concert} ${car.Year}`;
-        frame.setAttribute('src',car.Source);
-        frame.setAttribute('width','100%');
-        frame.setAttribute('height','100%');
-        frame.setAttribute('autoplay','allow');
-        frame.setAttribute('alt',`${car.Concert} ${car.Year} Video`);
-        p.innerHTML = `Song: ${car.Song}<br>Choir: ${car.Choir}<br>Credit: ${car.Credit}`;
+        if (car.Source != "0") {
+            let ar = document.createElement('article');
+            let h3 = document.createElement('h3');
+            let frame = document.createElement('iframe');
+            let p = document.createElement('p');
+    
+            h3.innerHTML = `${car.Concert} ${car.Year}`;
+            frame.setAttribute('src',car.Source);
+            frame.setAttribute('width','100%');
+            frame.setAttribute('height','100%');
+            frame.setAttribute('autoplay','allow');
+            frame.setAttribute('alt',`${car.Concert} ${car.Year} Video`);
+            p.innerHTML = `Song: ${car.Song}<br>Choir: ${car.Choir}<br>Credit: ${car.Credit}`;
+    
+            ar.appendChild(h3);
+            ar.appendChild(frame);
+            ar.appendChild(p);
+            carsElement.appendChild(ar);
+        }
 
-        ar.appendChild(h3);
-        ar.appendChild(frame);
-        ar.appendChild(p);
-        carsElement.appendChild(ar);
     });
 }
 
