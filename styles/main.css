@@ -140,6 +140,15 @@ nav ul li a:hover {
     font-size: 6.5vw;
 }
 
+#pDisclaim {
+    font-size: 2vw;
+    padding: 3vw 3vw;
+    color: var(--offwhite);
+    background-color: var(--darkgrey);
+    justify-content: center;
+    text-align: center;
+}
+
 /* Styles for dropdown */
 
 
@@ -563,7 +572,6 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: .5rem;
     align-items: center;
-    margin-bottom: 3rem;
 }
 
 #brands {
@@ -682,16 +690,17 @@ footer {
 
 
     .class-header {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1;
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto;
 
     }
     .class-header img {
-        grid-column: 1;
+        grid-row: 1;
+        padding: 20px 40px;
     }
     .class-info{
-        grid-column: 2;
-        grid-row: 1;
+        grid-column: 1;
+        grid-row: 2;
     }
 
     .class-info p 
