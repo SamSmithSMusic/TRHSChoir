@@ -574,5 +574,45 @@
         "Credit": "Steven Schwartz",
         "Year": "2024",
         "Source": "https://drive.google.com/file/d/1KhS3dOubqUYOV7bojI6te8dfw_nUrSVF/preview"
+    },
+    {
+        "Concert": "ISU Invitational",
+        "Choir": "Chamber",
+        "Song": "O Love",
+        "Credit": "Elaine Hagenberg",
+        "Year": "2024",
+        "Source": "https://drive.google.com/file/d/1yj0-C44AU0yJ5MJ9K9VdyvzgWm7ISPdQ/preview"
+    },
+    {
+        "Concert": "ISU Invitational",
+        "Choir": "ISU Combined",
+        "Song": "Keep Marchin Till I Make it Home",
+        "Credit": "Raymond Wise",
+        "Year": "2024",
+        "Source": "https://drive.google.com/file/d/1U7oEHzU0EmrFVLRE8g38hy3bTiwg7TOa/preview"
+    },
+    {
+        "Concert": "ISU Invitational",
+        "Choir": "ISU Combined",
+        "Song": "We Shall Overcome",
+        "Credit": "arr. Dareion Malone",
+        "Year": "2024",
+        "Source": "https://drive.google.com/file/d/1G64PHo_aWDoyUrnUyT-3Svjd6ns61syw/preview"
+    },
+    {
+        "Concert": "ISU Invitational",
+        "Choir": "ISU Combined",
+        "Song": "You're the One",
+        "Credit": "Raymond Wise",
+        "Year": "2024",
+        "Source": "https://drive.google.com/file/d/1GSSpJbNuID0faiuqRHs1HB9wqvvsghqh/preview"
+    },
+    {
+        "Concert": "ISU Invitational",
+        "Choir": "ISU Combined",
+        "Song": "I've Got a Robe",
+        "Credit": "arr. Raymond Wise",
+        "Year": "2024",
+        "Source": "https://drive.google.com/file/d/1nMRp-omDYCb2nkukZqR_8KSzQdDWKAHF/preview"
     }
 ]

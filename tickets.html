@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRHS Choir | Tickets & Fundraisers</title>
+    <meta name="author" content="OPED Technologies">
+    <meta name="description" content="ticket purchase links for Thunder Ridge High School Choir program located in Ammon, Idaho.">
+    <title>Thunder Ridge High School Choir | TRHS Choir Tickets and Fundraisers</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap"
@@ -13,7 +15,7 @@
   
 <body>
       <header>
-      <img id="banner" src="media/trhschoir logo.png">
+      <img id="banner" src="media/trhschoir-logo.webp" alt="TRHS Choir Logo">
       <nav>
           <ul id="menu">
           <li><a id="toggleMenu">&equiv;</a></li>
@@ -45,13 +47,14 @@
           <p>Click the button below to be redirected to the Thunder Ridge PAC Ticket Store</p>
         </div>
 
-        <button class="glow-on-hover" onclick="window.open('https://trpac.ludus.com/', '_blank');" type="button"><img src="media/TR-Logo-Button.png">Tickets</button>
+        <button class="glow-on-hover" onclick="window.open('https://trpac.ludus.com/', '_blank');" type="button"><img src="media/TR-Logo-Button.webp" alt="TR Choir Logo">Tickets</button>
 
       </div>
 
       <footer>
         &copy;<span id="year"></span> | Thunder Ridge High School Choir | (210)710-5856 | claytonm@d93mail.com | Director: Mary Clayton-Smith
         <script>
+          let choir = 'tickets';
           document.getElementById("year").innerHTML = new Date().getFullYear();
         </script>
           <script type="module" src="scripts/main.js"></script>

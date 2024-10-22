@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRHS Choir | Calendar</title>
+    <meta name="author" content="OPED Technologies">
+    <meta name="description" content="Dynamically updated google calendar for Thunder Ridge High School Choir program events located in Ammon, Idaho.">
+    <title>Thunder Ridge High School Choir | TRHS Choir Google Calendar</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap"
@@ -13,7 +15,7 @@
   
 <body>
       <header>
-      <img id="banner" src="media/trhschoir logo.png">
+        <img id="banner" src="media/trhschoir-logo.webp" alt="TRHS Choir Logo">
       <nav>
           <ul id="menu">
           <li><a id="toggleMenu">&equiv;</a></li>
@@ -41,13 +43,14 @@
       
       <h1>TRHS Choir Google Calendar</h1>
       <div class="responsive-iframe-container big-container">
-      <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FDenver&bgcolor=%23303030&showCalendars=0&showPrint=0&mode=MONTH&showTitle=0&src=Y18zMWM2YTE4NGRmZGE2NTk5NGQyMjdkYjViZjU5NTAwOTNhYzdhMjg0ZjhlMzdjYzU2ZWRlMjk5MTc5MWE0Y2E3QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%238E24AA" style="border-width:0" width=90% height="600" frameborder="0" scrolling="no"></iframe>
+      <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FDenver&bgcolor=%23303030&showCalendars=0&showPrint=0&mode=MONTH&showTitle=0&src=Y18zMWM2YTE4NGRmZGE2NTk5NGQyMjdkYjViZjU5NTAwOTNhYzdhMjg0ZjhlMzdjYzU2ZWRlMjk5MTc5MWE0Y2E3QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%238E24AA" style="border-width:0" width="800" height="600"></iframe>
       </div>
       <div class="responsive-iframe-container small-container">
-        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FDenver&bgcolor=%23303030&mode=AGENDA&showTitle=0&showPrint=0&showCalendars=0&showDate=0&src=Y18zMWM2YTE4NGRmZGE2NTk5NGQyMjdkYjViZjU5NTAwOTNhYzdhMjg0ZjhlMzdjYzU2ZWRlMjk5MTc5MWE0Y2E3QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%238E24AA" style="border-width:0" width=100% height="600" frameborder="0" scrolling="no"></iframe>      </div>
+        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FDenver&bgcolor=%23303030&mode=AGENDA&showTitle=0&showPrint=0&showCalendars=0&showDate=0&src=Y18zMWM2YTE4NGRmZGE2NTk5NGQyMjdkYjViZjU5NTAwOTNhYzdhMjg0ZjhlMzdjYzU2ZWRlMjk5MTc5MWE0Y2E3QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%238E24AA" style="border-width:0" width="800" height="600"></iframe>      </div>
       <footer>
         &copy;<span id="year"></span> | Thunder Ridge High School Choir | (210)710-5856 | claytonm@d93mail.com | Director: Mary Clayton-Smith
         <script>
+          let choir = 'Calendar';
           document.getElementById("year").innerHTML = new Date().getFullYear();
         </script>
           <script type="module" src="scripts/main.js"></script>

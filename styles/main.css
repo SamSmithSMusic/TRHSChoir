@@ -101,7 +101,7 @@ nav ul li a:hover {
 }
 
 #indexbody .quote h2 {
-    font-size: 3vw;
+    font-size: 6vw;
     padding: 1vw;
     color: var(--offwhite);
     font-style: italic;
@@ -110,7 +110,7 @@ nav ul li a:hover {
 }
 
 #indexbody .quote p {
-    font-size: 2vw;
+    font-size: 3vw;
     text-align: right;
     background: none;
     color: var(--offwhite);
@@ -129,6 +129,7 @@ nav ul li a:hover {
 #indexbody #instapage {
     grid-column: 2/5;
     width: 100%;
+    margin-bottom: 3vw;
 }
 
 #indexbody #facepage {
@@ -199,7 +200,6 @@ nav ul li a:hover {
     width: 90%;
     height: 100%;
     display: grid;
-    grid-template-rows: auto, auto,auto;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -467,7 +467,7 @@ footer {
 
 .class-header {
     display: grid;
-    grid-template-columns: 1;
+    grid-template-columns: 1fr;
     grid-template-rows: auto;
     align-items: center;
     justify-items: center;
@@ -476,13 +476,11 @@ footer {
 .class-info {
     grid-column: 1;
     display:grid;
-    grid-template-columns: 1;
-    grid-template-rows: 2;
+    grid-template-columns: 1fr;
     align-items: center;
     justify-content: center;
     max-height: 100%;
     align-self: stretch;
-    grid-row: 2;
 }
 
 .class-info h1{
@@ -552,7 +550,7 @@ footer {
     font-size: large;
     margin: 1rem auto;
     width: 200px;
-    border: 1px solid --darkblue;
+    border: 1px solid var(--darkblue);
     text-align: center;
 }
 
@@ -611,6 +609,7 @@ footer {
     height: auto;
     box-shadow: 0 0 60px var(--darkblue);
     margin: .5rem;
+    border: none;
 }
 
 
@@ -622,6 +621,16 @@ footer {
     margin: auto;
 }
 
+
+.prev,.next {
+    color: var(--offwhite);
+    background: none;
+    font-size: 10vw;
+}
+
+.prev:hover,.next:hover {
+    color: var(--darkblue);
+}
 
 
 /* Responsive iFrame */
@@ -718,5 +727,15 @@ footer {
         max-width: -moz-fit-content;
         max-width: fit-content;
     }
+
+    #indexbody .quote h2 {
+        font-size: 3vw;
+    }
+
+    #indexbody p {
+        font-size: 2vw;
+    }
+
+
 
 }
