@@ -1,7 +1,7 @@
 const brandsElement = document.querySelector('#brands');
 const carsElement = document.querySelector("#cars");
 let carList = [];
-let choir = document.title.split('|').map(item => item.trim()).pop();
+// let choir = document.title.split('|').map(item => item.trim()).pop();
 
 
 const getCars = async () => {
@@ -91,6 +91,7 @@ const displayCars = (carList, carsElement) => {
             frame.setAttribute('width','100%');
             frame.setAttribute('height','100%');
             frame.setAttribute('autoplay','allow');
+            frame.setAttribute('loading','lazy');
             frame.setAttribute('alt',`${car.Concert} ${car.Year} Video`);
             p.innerHTML = `Song: ${car.Song}<br>Choir: ${car.Choir}<br>Credit: ${car.Credit}`;
     

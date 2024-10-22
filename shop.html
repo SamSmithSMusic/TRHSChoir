@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRHS Choir | Shop</title>
+    <meta name="author" content="OPED Technologies">
+    <meta name="description" content="Come see our TRHS Choir mechandise shop with proceeds going to the choir! Store for Thunder Ridge High School Choir program located in Ammon, Idaho.">
+    <title>Thunder Ridge High School Choir | TRHS Choir Mechandise Shop and Fundraiser</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap"
@@ -13,7 +15,7 @@
   
 <body>
       <header>
-      <img id="banner" src="media/trhschoir logo.png">
+        <img id="banner" src="media/trhschoir-logo.webp" alt="TRHS Choir Logo">
       <nav>
           <ul id="menu">
           <li><a id="toggleMenu">&equiv;</a></li>
@@ -47,7 +49,7 @@
         </div>
 
         <button class="glow-on-hover" onclick="window.open('https://thunder-ridge-choir.printify.me/products', '_blank');" type="button">
-          <img src="media/TR-Logo-Button.png" alt="Thunder Ridge Choir Logo" style="vertical-align: middle; margin-right: 5px;">
+          <img src="media/TR-Logo-Button.webp" alt="Thunder Ridge Choir Logo" style="vertical-align: middle; margin-right: 5px;">
           Shop
       </button>
       </div>
@@ -55,6 +57,7 @@
       <footer>
         &copy;<span id="year"></span> | Thunder Ridge High School Choir | (210)710-5856 | claytonm@d93mail.com | Director: Mary Clayton-Smith
         <script>
+          let choir = 'shop';
           document.getElementById("year").innerHTML = new Date().getFullYear();
         </script>
           <script type="module" src="scripts/main.js"></script>
