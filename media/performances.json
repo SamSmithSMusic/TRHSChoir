@@ -710,5 +710,109 @@
         "Credit": "Kenny Loggins",
         "Year": "2024",
         "Source": "https://drive.google.com/file/d/1e4sdXO8Njb_z5G-f9CJNTaTuQNQfSnql/preview"
+    },
+    {
+        "Concert": "Holiday",
+        "Choir": "Chamber",
+        "Song": "Hark, I Hear the Harps Eternal",
+        "Credit": "Alice Parker",
+        "Year": "2024",
+        "Source": "https://drive.google.com/file/d/1Qt2nJ0FDMs8TSnFSmYD0mtvN3HZBwppL/preview"
+    },
+    {
+        "Concert": "Holiday",
+        "Choir": "Chamber",
+        "Song": "Blow, Blow, Thou Winter Wind",
+        "Credit": "John Rutter",
+        "Year": "2024",
+        "Source": "https://drive.google.com/file/d/1zYSZe-5DtD1aTAY1bDlLxxKz0SpP7YMj/preview"
+    },
+    {
+        "Concert": "Holiday",
+        "Choir": "Soprano/Alto",
+        "Song": "African Noel",
+        "Credit": "Dave & Jean Perry",
+        "Year": "2024",
+        "Source": "https://drive.google.com/file/d/16o3XwwkJsZYBCa8kt7UBWgk9nPfnawgo/preview"
+    },
+    {
+        "Concert": "Holiday",
+        "Choir": "Soprano/Alto",
+        "Song": "On This Still, Silent Night",
+        "Credit": "arr. Laura Farnell",
+        "Year": "2024",
+        "Source": "https://drive.google.com/file/d/1ZTquNrLofgBb5oGVq4g63iP1f3DkvA6q/preview"
+    },
+    {
+        "Concert": "Holiday",
+        "Choir": "Tenor/Bass",
+        "Song": "Fum Fum Fum",
+        "Credit": "arr. Curt Hansen",
+        "Year": "2024",
+        "Source": "https://drive.google.com/file/d/13BEPenCFkVVXSq6xCJX2IOerPacvt5q7/preview"
+    },
+    {
+        "Concert": "Holiday",
+        "Choir": "Tenor/Bass",
+        "Song": "Bethlehem",
+        "Credit": "arr. Hughes & Loose",
+        "Year": "2024",
+        "Source": "https://drive.google.com/file/d/1od4_2pr_4eC5lsy74i64Q6MQ90C8Htqz/preview"
+    },
+    {
+        "Concert": "Holiday",
+        "Choir": "Belle Voix",
+        "Song": "Sussex Carol",
+        "Credit": "arr. Dave & Jean Perry",
+        "Year": "2024",
+        "Source": "https://drive.google.com/file/d/1Rgh-9qUl7aqA41QSd5Vf09gS7oivl6zC/preview"
+    },
+    {
+        "Concert": "Holiday",
+        "Choir": "Belle Voix",
+        "Song": "Count Your Blessings Instead of Sheep",
+        "Credit": "Berlin, arr. Mark Brymer",
+        "Year": "2024",
+        "Source": "https://drive.google.com/file/d/1GxwyR_bOTpt5_R1nxkkDvYIrhwjyS8A7/preview"
+    },
+    {
+        "Concert": "Holiday",
+        "Choir": "Vivace",
+        "Song": "Hallelujah, Amen",
+        "Credit": "George Frederick Handel",
+        "Year": "2024",
+        "Source": "https://drive.google.com/file/d/1JGDo4qOzkOXgworja6DCZXX_UC7wcNe5/preview"
+    },
+    {
+        "Concert": "Holiday",
+        "Choir": "Vivace",
+        "Song": "Brightest and Best",
+        "Credit": "arr. Shawn Kirchner",
+        "Year": "2024",
+        "Source": "https://drive.google.com/file/d/1EUQarhRKS0yZZDz5lOhY8AzbqjsC2FOy/preview"
+    },
+    {
+        "Concert": "Holiday",
+        "Choir": "Combined Women",
+        "Song": "There is a Santa Claus",
+        "Credit": "arr. by Andy Beck",
+        "Year": "2024",
+        "Source": "https://drive.google.com/file/d/1t9pVmeaSMxqo7f4Vrq56vE_ydTks9_k8/preview"
+    },
+    {
+        "Concert": "Holiday",
+        "Choir": "Combined Men",
+        "Song": "A Holly Jolly Christmas",
+        "Credit": "arr. Greg Gilpin",
+        "Year": "2024",
+        "Source": "https://drive.google.com/file/d/15UfyzJ_2ySE9ujXvQ-BeOgmYmdsL_CIG/preview"
+    },
+    {
+        "Concert": "Holiday",
+        "Choir": "Combined",
+        "Song": "Carol of the Bells",
+        "Credit": "arr. Wilhousky",
+        "Year": "2024",
+        "Source": "https://drive.google.com/file/d/1wMB1vaILQAQDjuuLjnxAKPbFf_9kzcHZ/preview"
     }
 ]
