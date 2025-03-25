@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="OPED Technologies">
+    <meta name="description" content="TRHS Director Performance Database Editor">
+    <title>Thunder Ridge High School Choir | TRHS Choir DB Editor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css">
+</head> 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QB48YBRCRY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QB48YBRCRY');
+</script>
+
+  
+<body>
+      <header>
+        <img id="banner" src="../media/trhschoir-logo.webp" alt="TRHS Choir Logo">
+      <nav>
+          <ul id="menu">
+          <li><a id="toggleMenu">&equiv;</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
+          <li class="dropdown">
+            <a href="#" class="droptn">Choirs &#9662;</a>
+            <ul class="dropdown-content">
+              <li><a href="chamber.html">Chamber</a></li>
+              <li><a href="vivace.html">Vivace</a></li>
+              <li><a href="belle.html">Belle Voix</a></li>
+              <li><a href="tenorbass.html">Tenor/Bass</a></li>
+              <li><a href="sopranoalto.html">Soprano/Alto</a></li>
+              <li><a href="unavoce.html">Una Voce</a></li>
+              <li><a href="musictheory.html">Music Appreciation</a></li>
+            </ul>
+          </li>
+          <li><a href="tickets.html">Tickets & Fundraisers</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="repertoire.html">Repertoire</a></li>
+          <li><a href="performances.html">Performance Archive</a></li>
+          </ul>
+      </nav>
+      </header>
+      
+      <main class="dbEditor">
+        <h1>Director Editor</h1>
+        <div class="dbapp">
+          
+          <span><p id="status"></p><div class="btn hidden" id="logout-btn">Logout</div></span>
+          <div class="btn" id="login-btn">Login with Google</div>
+          
+          <div class="hidden" id="write-btn">Write to Firestore</div>
+          <div class="hidden" id="read-btn">Read from Firestore</div>
+
+          
+          <section id="performance-list">
+            <h2>Performance Database</h2>
+            <p class="add">Create Entry</p>
+            <div class="performance-card">
+              <h3 class="song">Far Beyond the Sea</h3>
+              <h4 class="credit">Mohonri Moriancamer</h4>
+              <div class="perf-desc">
+                <p class="choir">Tenor Bass</p>
+                <p class="concertDate">Winter | 2023</p>
+              </div>
+              <div class="modifiers"><img src="media/pencil.webp" alt="edit symbol">
+                <img src="media/delete.webp" alt="delete symbol"></div>
+            </div>
+            <div class="performance-card">
+              <h3 class="song">Sea's Day</h3>
+              <h4 class="credit">Mohonri Moriancamer</h4>
+              <div class="perf-desc">
+                <p class="choir">Tenor Bass</p>
+                <p class="concertDate">Winter | 2023</p>
+              </div>
+              <div class="modifiers"><img class="edit" src="media/pencil.webp" alt="edit symbol">
+                <img class="delete" src="media/delete.webp" alt="delete symbol"></div>
+            </div>
+          </section>
+          
+          
+        </div>
+      </main>
+
+      <footer>
+        &copy;<span id="year"></span> | Thunder Ridge High School Choir | (210)710-5856 | claytonm@d93mail.com | Director: Mary Clayton-Smith
+        <script>
+          let choir = 'Repertoire';
+          document.getElementById("year").innerHTML = new Date().getFullYear();
+        </script>
+          <script type="module" src="scripts/main.js"></script>
+          <script type="module" src="scripts/dbupdate.js"></script>
+      </footer>
+</body>
+</html>

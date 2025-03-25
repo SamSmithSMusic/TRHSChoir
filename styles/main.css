@@ -651,6 +651,131 @@ footer {
     height: 100%;
  }
 
+/* DB Editor */
+
+.dbEditor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.dbEditor h1{
+    font-size: 13vw;
+    margin-bottom: 0;
+}
+
+.dbapp {
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    color: var(--offwhite);
+}
+
+.dbEditor .btn{
+    color: var(--darkgrey);
+    background-color: var(--offwhite);
+    border-radius: 10px;
+    
+    font-size: 18px;
+    min-height: 44px;
+    padding: 3%;
+    /* display: block; */
+    margin: 10px 10px;
+}
+
+
+.dbapp span {
+    display: block;
+    margin: 5%;
+}
+.dbapp span p{
+    display: inline;
+}
+
+
+.dbapp section{
+    border: var(--lightblue) solid 2px;
+    border-top: var(--lightblue) solid 40px; 
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: var(--darkgrey);
+    box-shadow: inset 0 0 60px rgba(11, 47, 68, .5);
+}
+.dbapp .add {
+    background-color: var(--lightgrey);
+    color: var(--black);
+    padding: 3% 7%;;
+    width: 80%;
+    height: 15%;
+    border-radius: 4px;
+    font-size: 22px;
+}
+.dbapp section>*{
+    margin-bottom: 4%;
+}
+.dbapp h2 {
+    margin-top: 0;
+    color: var(--offwhite);
+    font-size: 170%;
+}
+div.performance-card {
+    background-color: var(--offwhite);
+    color: var(--black);
+    width: 100%;
+    text-align: left;
+    padding: 2%;
+    padding-bottom: 10%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    text-wrap: wrap;
+    position: relative;
+}
+.dbapp h3 {
+ font-size: 20px;
+ margin: 0;
+}
+.dbapp h4 {
+    margin-top: 1%;
+    margin-bottom: 5%;
+}
+.dbapp .perf-desc {
+    position: absolute;
+    bottom: 2%;
+}
+.dbapp img {
+    width: 44px;
+    height: auto;
+    display: inline;
+}
+.dbapp .modifiers {
+    text-align: end;
+    display: inline;
+    padding: 2%;
+    height: 60px;
+    min-height: 44px;
+    width: 50%;
+    min-width: 44px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+
+
+
+
+
+
+
+
+.hidden {
+    display: none;
+}
+
 /* Media Queries */
 
 
