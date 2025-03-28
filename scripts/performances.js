@@ -1,3 +1,5 @@
+import {auth, db, provider, getPerformances} from "../scripts/firebaseCall.js";
+
 const brandsElement = document.querySelector('#brands');
 const carsElement = document.querySelector("#cars");
 let carList = [];
@@ -6,7 +8,7 @@ let carList = [];
 
 const getCars = async () => {
     const response = await fetch('media/performances.json');
-    carList = await response.json()
+    carList = await getPerformances();
     if (choir == "Archive")
     {
         displayCars(carList, carsElement);
