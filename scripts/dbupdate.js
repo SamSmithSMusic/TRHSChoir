@@ -149,6 +149,26 @@ async function displayPerformance(performance, container) {
 
   perfCard.innerHTML = getTemplate(performance);
 
+  let modDiv = document.createElement("div");
+  modDiv.classList.add("modifiers");
+
+  let edit = document.createElement("img");
+  edit.classList.add("edit");
+  edit.src = "../media/pencil.webp";
+  edit.alt = "edit symbol";
+  edit.addEventListener("click", () => editPerformance(performance));
+
+  let del = document.createElement("img");
+  del.classList.add("delete");
+  del.src = "../media/delete.webp";
+  del.alt = "delete symbol";
+  del.addEventListener("click", () => deletePerformance(performance));
+
+  modDiv.appendChild(edit);
+  modDiv.appendChild(del);
+
+  perfCard.appendChild(modDiv);
+
   container.appendChild(perfCard);
   
 }
@@ -159,7 +179,13 @@ function clearPerformances() {
   })
 }
 
+function editPerformance(performance) {
+  console.log("Edit:", performance.Song);
+}
 
+function deletePerformance(performance) {
+  console.log("Delete:", performance.Song);
+}
 
 
 

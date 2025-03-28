@@ -6,9 +6,5 @@ export function getTemplate(performance) {
   <p class="choir">${performance.Choir}</p>
   <p class="concertDate">${performance.Year}</p>
 </div>
-<div class="modifiers">
-  <img class="edit" src="../media/pencil.webp" alt="edit symbol">
-  <img class="delete" src="../media/delete.webp" alt="delete symbol">
-</div>
   `
 }
