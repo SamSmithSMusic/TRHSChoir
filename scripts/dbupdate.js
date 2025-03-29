@@ -1,7 +1,7 @@
 // import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
 
-// import { getFirestore, doc, getDoc, setDoc, getDocs, collection} 
-//   from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+import {doc, setDoc, deleteDoc}
+  from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } 
   from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
 import {getTemplate} from "./perf-entry.js";
@@ -21,6 +21,9 @@ import {auth, db, provider, getPerformances} from "../scripts/firebaseCall.js";
 
 let message = document.querySelector(".updateMessage");
 let container = document.querySelector('#performance-list');
+let main = document.querySelector('main');
+let performances = [];
+
   
 
 // // Initialize Firebase
@@ -90,9 +93,9 @@ document.getElementById("logout-btn").addEventListener("click", () => {
   signOut(auth).then(() => {
     console.log("User signed out.");
     document.getElementById("status").textContent = "Logged Out!";
-    document.getElementById("login-btn").classList.remove("hidden");
     document.getElementById("logout-btn").style.display = "none";
-    message.innerText = "Login to See Performances";
+    document.getElementById("login-btn").classList.remove("hidden");
+    // message.innerText = "Login to See Performances";
   });
 });
 
@@ -127,9 +130,14 @@ async function readData() {
 
 // Load Performances on Login
 async function loadPerformances() {
+  const user = auth.currentUser;
+  if (user == null || user.email !== ALLOWED_USER) {
+    return;
+  }
+
   message.innerText = "Loading Performances...";
 
-  const performances = await getPerformances(); 
+  performances = await getPerformances(); 
 if (performances != null) {
   performances.forEach(performance => {
     displayPerformance(performance, container);
@@ -180,23 +188,178 @@ function clearPerformances() {
 }
 
 function editPerformance(performance) {
+  buildLightBox();
+  edit(performance);
   console.log("Edit:", performance.Song);
 }
 
 function deletePerformance(performance) {
+  buildLightBox();
+  
+  let warning = document.createElement('h2');
+  warning.innerHTML = `Are you sure you want to delete:<br> ${performance.Song}?<br>This <b>cannot</b> be undone!!`;
+  document.querySelector('.editBox').append(warning);
+
+  let proceed = document.createElement('div');
+  proceed.setAttribute('id', 'deleteBtn');
+  proceed.innerHTML = "Proceed";
+
+  let alerts = document.createElement('label');
+  alerts.setAttribute('class', 'alerts');
+  document.querySelector('.editBox').append(alerts);
+  
+  document.querySelector('.editBox').append(proceed);
+
+  proceed.addEventListener('click', async () => {
+  alerts.innerText = "Deleting...";
   console.log("Delete:", performance.Song);
+  await deleteData(performance);
+  });
+}
+
+function buildLightBox() {
+  let lightBox = document.createElement("div");
+  let Xit = document.createElement("span");
+  
+  lightBox.classList.add("editBack");
+  Xit.classList.add("exitBtn");
+  Xit.innerText = "X";
+
+  let editBox = document.createElement("div");
+  editBox.classList.add("editBox");
+
+  lightBox.append(Xit);
+  lightBox.append(editBox);
+  main.append(lightBox);
+
+  document.querySelector(".exitBtn").addEventListener("click", destroyLightBox);
+}
+
+function destroyLightBox() {
+  document.querySelector('.editBack').remove();
 }
 
 
+function edit(performance) {
 
+  let {choirs, concerts, years} = getUniqueValues(performances);
 
+  let form = document.createElement("form");
+  form.setAttribute('id', 'editForm');
 
-try {
-  window.onload = loadPerformances;
+  form.innerHTML = getFormStructure(performance, choirs, concerts, years);
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    document.querySelector(".alerts").innerText = "Submitting...";
+    await submitEdits(Object.fromEntries(new FormData(e.target).entries()), performance);
+});
+
+  document.querySelector(".editBox").append(form);
 }
-catch (e) {
-  console.log("Insufficient Permissions");
+
+function getUniqueValues(performances) {
+  let choirs = new Set();
+  let concerts = new Set();
+  let years = new Set();
+
+  performances.forEach(performance => {
+    choirs.add(performance.Choir);
+    concerts.add(performance.Concert);
+    years.add(performance.Year);
+  });
+
+  return {
+    choirs: Array.from(choirs),
+    concerts: Array.from(concerts),
+    years: Array.from(years)
+  };
 }
+
+function getFormStructure(performance, choirs, concerts, years) {
+  return `
+  <form id="editForm">
+              <h2>Performance Details <br>Editor</h2>
+  
+              <label for="song">Song:</label>
+              <input type="text" id="song" name="Song" value="${performance.Song}" required>
+
+              <label for="credit">Credit:</label>
+              <input type="text" id="credit" name="Credit" value="${performance.Credit}" required>
+  
+              <label for="source">Source:</label>
+              <input type="text" id="source" name="Source" value="${performance.Source}" required>
+  
+              <label for="choir">Choir:</label>
+              <input list="choirs" id="choir" name="Choir" value="${performance.Choir || ''}" required>
+              <datalist id="choirs">
+                  ${choirs.map(choir => `<option value="${choir}">`).join("")}
+              </datalist>
+  
+              <label for="concert">Concert:</label>
+              <input list="concerts" id="concert" name="Concert" value="${performance.Concert || ''}" required>
+              <datalist id="concerts">
+                  ${concerts.map(concert => `<option value="${concert}">`).join("")}
+              </datalist>
+
+              <label for="year">Year:</label>
+              <input list="years" id="year" name="Year" value="${performance.Year || ''}" required>
+              <datalist id="years">
+                  ${years.map(year => `<option value="${year}">`).join("")}
+              </datalist>
+
+              <label class="alerts"></label>        
+              <input id="submitBtn" type="submit" value="Save">
+              </form>
+  `
+}
+
+async function submitEdits(data,performance) {
+  const user = auth.currentUser;
+  if (user && user.email === ALLOWED_USER) {
+    try {
+      let docRef = doc(db, "performances", performance.id);
+      await setDoc(docRef, data);
+      alert("Changes Saved!");
+      destroyLightBox();
+      clearPerformances();
+      loadPerformances();
+    }
+    catch (e) {
+      console.log(e);
+      alert("Error Processing Data");
+    }
+  } else {
+    alert("Unauthorized action!");
+  }
+}
+
+async function deleteData(performance) {
+  const user = auth.currentUser;
+  if (user && user.email === ALLOWED_USER) {
+    try {
+      let docRef = doc(db, "performances", performance.id);
+      await deleteDoc(docRef);
+      alert("Document Deleted Successfully!");
+      destroyLightBox();
+      clearPerformances();
+      loadPerformances();
+    }
+    catch (e) {
+      console.log(e);
+      alert("Error Processing Data");
+    }
+  } else {
+    alert("Unauthorized action!");
+  }
+}
+
+
+window.onload = function() {
+  document.querySelector(".updateMessage").innerText = "Attempting to Load Performances...";
+  setTimeout(loadPerformances, 1000)
+};
+
 
 document.getElementById("write-btn").addEventListener("click", writeData);
 document.getElementById("read-btn").addEventListener("click", readData);

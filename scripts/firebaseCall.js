@@ -29,7 +29,9 @@ export  async function getPerformances() {
 
     response.forEach(doc => {
         console.log(doc.data());
-        performances.push(doc.data());
+        let performace = doc.data();
+        performace.id = doc.id;
+        performances.push(performace);
       });
     
     if (performances != null) {
