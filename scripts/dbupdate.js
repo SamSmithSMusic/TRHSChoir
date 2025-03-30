@@ -1,6 +1,6 @@
 // import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
 
-import {doc, setDoc, deleteDoc}
+import {doc, setDoc, deleteDoc, addDoc, collection}
   from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } 
   from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
@@ -282,13 +282,13 @@ function getFormStructure(performance, choirs, concerts, years) {
               <h2>Performance Details <br>Editor</h2>
   
               <label for="song">Song:</label>
-              <input type="text" id="song" name="Song" value="${performance.Song}" required>
+              <input type="text" id="song" name="Song" value="${performance.Song || ""}" required>
 
               <label for="credit">Credit:</label>
-              <input type="text" id="credit" name="Credit" value="${performance.Credit}" required>
+              <input type="text" id="credit" name="Credit" value="${performance.Credit || ""}" required>
   
               <label for="source">Source:</label>
-              <input type="text" id="source" name="Source" value="${performance.Source}" required>
+              <input type="text" id="source" name="Source" value="${performance.Source || ""}" required>
   
               <label for="choir">Choir:</label>
               <input list="choirs" id="choir" name="Choir" value="${performance.Choir || ''}" required>
@@ -354,6 +354,52 @@ async function deleteData(performance) {
   }
 }
 
+function createEntry() {
+  const user = auth.currentUser;
+  if (user == null || user.email !== ALLOWED_USER) {
+    message.innerText = "Unauthorized Request.";
+    return;
+  }
+  else {
+    buildLightBox();
+      console.log("Create Entry");
+
+      let {choirs, concerts, years} = getUniqueValues(performances);
+
+    let form = document.createElement("form");
+    form.setAttribute('id', 'editForm');
+
+    form.innerHTML = getFormStructure(performance, choirs, concerts, years);
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      document.querySelector(".alerts").innerText = "Submitting...";
+      await submitNew(Object.fromEntries(new FormData(e.target).entries()));
+  });
+
+  document.querySelector(".editBox").append(form);
+}
+}
+
+async function submitNew(data) {
+  const user = auth.currentUser;
+  if (user && user.email === ALLOWED_USER) {
+    try {
+      await addDoc(collection(db, "performances"), data);
+      alert("Performance Added!");
+      destroyLightBox();
+      clearPerformances();
+      loadPerformances();
+    }
+    catch (e) {
+      console.log(e);
+      alert("Error Processing Data");
+    }
+  } else {
+    alert("Unauthorized action!");
+  }
+}
+
 
 window.onload = function() {
   document.querySelector(".updateMessage").innerText = "Attempting to Load Performances...";
@@ -363,6 +409,7 @@ window.onload = function() {
 
 document.getElementById("write-btn").addEventListener("click", writeData);
 document.getElementById("read-btn").addEventListener("click", readData);
+document.querySelector("p.add").addEventListener("click", () => {createEntry();});
 
 // document.querySelector(".edit").addEventListener("click", () => {
 // console.log(this.title)})
