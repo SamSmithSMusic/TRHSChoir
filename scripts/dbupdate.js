@@ -386,7 +386,7 @@ async function submitNew(data) {
   if (user && user.email === ALLOWED_USER) {
     try {
       await addDoc(collection(db, "performances"), data);
-      alert("Performance Added!");
+      console.log("Performance Added!");
       destroyLightBox();
       clearPerformances();
       loadPerformances();
@@ -399,6 +399,15 @@ async function submitNew(data) {
     alert("Unauthorized action!");
   }
 }
+
+async function addJson() {
+  const response = await fetch('../media/performances.json');
+  let carList = await response.json()
+  carList.forEach(car => {
+    console.log(car);
+    submitNew(car);
+  }
+)}
 
 
 window.onload = function() {
