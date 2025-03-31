@@ -249,6 +249,8 @@ function edit(performance) {
 
   form.innerHTML = getFormStructure(performance, choirs, concerts, years);
 
+  
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     document.querySelector(".alerts").innerText = "Submitting...";
@@ -256,6 +258,49 @@ function edit(performance) {
 });
 
   document.querySelector(".editBox").append(form);
+
+  //Concert DropDown
+  document.querySelector(".dropDownLabel.concert .new-concert").addEventListener("click", () => {
+    let newConcert = document.createElement("input");
+    newConcert.setAttribute("type", "text");
+    newConcert.setAttribute("id", "concert");
+    newConcert.setAttribute("name", "Concert");
+    newConcert.setAttribute("required", "");
+    
+    document.querySelector(".dropDownLabel.concert select").remove();
+    document.querySelector(".dropDownLabel.concert").append(newConcert);
+    document.querySelector(".dropDownLabel.concert .new-concert").remove();
+    
+  });
+
+  //Choir Dropdown
+  document.querySelector(".dropDownLabel.choir .new-choir").addEventListener("click", () => {
+    let newChoir = document.createElement("input");
+    newChoir.setAttribute("type", "text");
+    newChoir.setAttribute("id", "choir");
+    newChoir.setAttribute("name", "Choir");
+    newChoir.setAttribute("required", "");
+    
+    document.querySelector(".dropDownLabel.choir select").remove();
+    document.querySelector(".dropDownLabel.choir").append(newChoir);
+    document.querySelector(".dropDownLabel.choir .new-choir").remove();
+    
+  });
+
+  //Year Dropdown
+  document.querySelector(".dropDownLabel.year .new-year").addEventListener("click", () => {
+    let newYear = document.createElement("input");
+    newYear.setAttribute("type", "text");
+    newYear.setAttribute("id", "year");
+    newYear.setAttribute("name", "Year");
+    newYear.setAttribute("required", "");
+    
+    document.querySelector(".dropDownLabel.year select").remove();
+    document.querySelector(".dropDownLabel.year").append(newYear);
+    document.querySelector(".dropDownLabel.year .new-year").remove();
+    
+  });
+
 }
 
 function getUniqueValues(performances) {
@@ -289,24 +334,21 @@ function getFormStructure(performance, choirs, concerts, years) {
   
               <label for="source">Source:</label>
               <input type="text" id="source" name="Source" value="${performance.Source || ""}" required>
-  
-              <label for="choir">Choir:</label>
-              <input list="choirs" id="choir" name="Choir" value="${performance.Choir || ''}" required>
-              <datalist id="choirs">
-                  ${choirs.map(choir => `<option value="${choir}">`).join("")}
-              </datalist>
-  
-              <label for="concert">Concert:</label>
-              <input list="concerts" id="concert" name="Concert" value="${performance.Concert || ''}" required>
-              <datalist id="concerts">
-                  ${concerts.map(concert => `<option value="${concert}">`).join("")}
-              </datalist>
 
-              <label for="year">Year:</label>
-              <input list="years" id="year" name="Year" value="${performance.Year || ''}" required>
-              <datalist id="years">
-                  ${years.map(year => `<option value="${year}">`).join("")}
-              </datalist>
+              <label for="choir">Choir: </label>
+              <div class="dropDownLabel choir"> <select list="choirs" id="choir" name="Choir" value="${performance.Choir || ''}" required>
+                  ${choirs.map(choir => `<option value="${choir}" ${choir === performance.Choir ? "selected" : ""}>${choir}</option>`).join("")}
+                  </select> <p class="new-choir">New</p></div>
+  
+              <label for="concert">Concert: </label>
+              <div class="dropDownLabel concert"> <select list="concerts" id="concert" name="Concert" value="${performance.Concert || ''}" required>
+                  ${concerts.map(concert => `<option value="${concert}" ${concert === performance.Concert ? "selected" : ""}>${concert}</option>`).join("")}
+                  </select> <p class="new-concert">New</p></div>
+              
+              <label for="year">Year: </label>
+              <div class="dropDownLabel year"> <select list="years" id="year" name="Year" value="${performance.Year || ''}" required>
+                  ${years.map(year => `<option value="${year}" ${year === performance.Year ? "selected" : ""}>${year}</option>`).join("")}
+                  </select> <p class="new-year">New</p></div>
 
               <label class="alerts"></label>        
               <input id="submitBtn" type="submit" value="Save">
@@ -371,13 +413,58 @@ function createEntry() {
 
     form.innerHTML = getFormStructure(performance, choirs, concerts, years);
 
+    document.querySelector(".editBox").append(form);
+
+
+    //Concert DropDown
+  document.querySelector(".dropDownLabel.concert .new-concert").addEventListener("click", () => {
+    let newConcert = document.createElement("input");
+    newConcert.setAttribute("type", "text");
+    newConcert.setAttribute("id", "concert");
+    newConcert.setAttribute("name", "Concert");
+    newConcert.setAttribute("required", "");
+    
+    document.querySelector(".dropDownLabel.concert select").remove();
+    document.querySelector(".dropDownLabel.concert").append(newConcert);
+    document.querySelector(".dropDownLabel.concert .new-concert").remove();
+    
+  });
+
+  //Choir Dropdown
+  document.querySelector(".dropDownLabel.choir .new-choir").addEventListener("click", () => {
+    let newChoir = document.createElement("input");
+    newChoir.setAttribute("type", "text");
+    newChoir.setAttribute("id", "choir");
+    newChoir.setAttribute("name", "Choir");
+    newChoir.setAttribute("required", "");
+    
+    document.querySelector(".dropDownLabel.choir select").remove();
+    document.querySelector(".dropDownLabel.choir").append(newChoir);
+    document.querySelector(".dropDownLabel.choir .new-choir").remove();
+    
+  });
+
+  //Year Dropdown
+  document.querySelector(".dropDownLabel.year .new-year").addEventListener("click", () => {
+    let newYear = document.createElement("input");
+    newYear.setAttribute("type", "text");
+    newYear.setAttribute("id", "year");
+    newYear.setAttribute("name", "Year");
+    newYear.setAttribute("required", "");
+    
+    document.querySelector(".dropDownLabel.year select").remove();
+    document.querySelector(".dropDownLabel.year").append(newYear);
+    document.querySelector(".dropDownLabel.year .new-year").remove();
+    
+  });
+
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       document.querySelector(".alerts").innerText = "Submitting...";
       await submitNew(Object.fromEntries(new FormData(e.target).entries()));
   });
 
-  document.querySelector(".editBox").append(form);
+  
 }
 }
 
@@ -412,7 +499,7 @@ async function addJson() {
 
 window.onload = function() {
   document.querySelector(".updateMessage").innerText = "Attempting to Load Performances...";
-  setTimeout(loadPerformances, 1000)
+  setTimeout(loadPerformances, 1500)
 };
 
 

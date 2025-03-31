@@ -708,6 +708,26 @@ footer {
     padding: 10%;
 }
 
+div .dropDownLabel {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.dropDownLabel select {
+    height: 100%;
+    font-size: 1rem;
+}
+.dropDownLabel p {
+    background-color: var(--darkblue);
+    color: #fff;
+    border-radius: 5px;
+    padding: 3%;
+    font-size: .85rem;
+}
+
 /* .editbox form label#alerts {
     margin-top: 10%;
     margin-bottom: 5%;

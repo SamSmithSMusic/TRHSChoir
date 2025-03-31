@@ -4,7 +4,7 @@ export function getTemplate(performance) {
 <h4 class="credit">${performance.Credit}</h4>
 <div class="perf-desc">
   <p class="choir">${performance.Choir}</p>
-  <p class="concertDate">${performance.Year}</p>
+  <p class="concertDate">${performance.Year} | ${performance.Concert}</p>
 </div>
   `
 }
