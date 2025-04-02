@@ -218,6 +218,8 @@ function deletePerformance(performance) {
 }
 
 function buildLightBox() {
+  document.querySelector('body').setAttribute('style', 'overflow: hidden;');
+
   let lightBox = document.createElement("div");
   let Xit = document.createElement("span");
   
@@ -236,6 +238,8 @@ function buildLightBox() {
 }
 
 function destroyLightBox() {
+  document.querySelector('body').setAttribute('style', 'overflow: show');
+
   document.querySelector('.editBack').remove();
 }
 
