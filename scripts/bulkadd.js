@@ -9,3 +9,5 @@ async function addJson() {
     const response = await fetch('media/performances.json');
     carList = await response.json()
 }
+
+// THIS IS USED FOR UPDATING FROM JSON BACKUP, DO NOT REMOVE
