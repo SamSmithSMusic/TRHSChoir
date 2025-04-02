@@ -7,9 +7,9 @@ let carList = [];
 
 
 const getCars = async () => {
-    const response = await fetch('media/performances.json');
+    // const response = await fetch('media/performances.json');
     carList = await getPerformances();
-    if (choir == "Archive")
+    if (choir == "Performance Archive")
     {
         displayCars(carList, carsElement);
     }
@@ -40,17 +40,17 @@ const sortBy = (cars) => {
 
     let filter = document.querySelector('#sortBy').value;
 
-    if (filter == "all" && choir != "Archive" && choir != "Repertoire")
+    if (filter == "all" && choir != "Performance Archive" && choir != "Repertoire")
     {
         displayCars(carList.filter(car => car.Choir.includes(choir)), carsElement);
     }
 
-    else if (choir != "Archive" && choir != "Repertoire" && filter != "all")
+    else if (choir != "Performance Archive" && choir != "Repertoire" && filter != "all")
     {
         displayCars(cars.filter(car => car.Year.includes(filter) && car.Choir.includes(choir)), carsElement);
     }
 
-    else if (choir == "Archive")
+    else if (choir == "Performance Archive")
     {
     switch (filter) {
         case "2022":

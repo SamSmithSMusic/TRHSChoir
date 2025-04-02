@@ -20,24 +20,59 @@ const firebaseConfig = {
   export const db = getFirestore();
   export const provider = new GoogleAuthProvider();
 
-export  async function getPerformances() {
+// export  async function getPerformances() {
   
+//     const user = auth.currentUser;
+//     let response = await getDocs(collection(db, "performances"));
+    
+//     let performances = [];
+
+//     response.forEach(doc => {
+//         // console.log(doc.data());
+//         let performace = doc.data();
+//         performace.id = doc.id;
+//         performances.push(performace);
+//       });
+    
+//     if (performances != null) {
+//       return performances;
+//     }
+//     else {
+//       return null;
+//     }
+//   }
+
+  export async function getPerformances() {
     const user = auth.currentUser;
     let response = await getDocs(collection(db, "performances"));
     
     let performances = [];
 
     response.forEach(doc => {
-        console.log(doc.data());
-        let performace = doc.data();
-        performace.id = doc.id;
-        performances.push(performace);
-      });
+        let performance = doc.data();
+        performance.id = doc.id;
+        performances.push(performance);
+    });
     
     if (performances != null) {
-      return performances;
+        // Sort performances by Year, then Concert, then Song
+        performances.sort((a, b) => {
+            // First sort by Year
+            if (a.Year !== b.Year) {
+                return a.Year - b.Year;  // Ascending order
+            }
+            
+            // If Years are equal, sort by Concert
+            if (a.Concert !== b.Concert) {
+                return a.Concert.localeCompare(b.Concert);  // Alphabetical order
+            }
+            
+            // If Concerts are equal, sort by Song
+            return a.Song.localeCompare(b.Song);  // Alphabetical order
+        });
+        
+        return performances;
+    } else {
+        return null;
     }
-    else {
-      return null;
-    }
-  }
+}

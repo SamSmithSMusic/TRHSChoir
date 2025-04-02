@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap"
       rel="stylesheet">
-    <link rel="stylesheet" href="styles/main.css">
+     <link rel="stylesheet" href="../styles/main.css">
 </head> 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QB48YBRCRY"></script>
@@ -25,7 +25,7 @@
   
 <body>
   <header>
-    <img id="banner" src="media/trhschoir-logo.webp" alt="TRHS Choir Logo">
+    <!-- <img id="banner" src="media/trhschoir-logo.webp" alt="TRHS Choir Logo">
     <nav>
         <ul id="menu">
         <li><a id="toggleMenu">&equiv;</a></li>
@@ -48,15 +48,15 @@
         <li><a href="repertoire.html">Repertoire</a></li>
         <li><a href="performances.html">Performance Archive</a></li>
         </ul>
-    </nav>
+    </nav> -->
     </header>
 
     <div class="carousel">
       <div class="slides">
-        <img src="media/choirs/Vivace-Formal.webp" alt="Vivace Choir">
-        <img src="media/choirs/Chamber-Formal.webp" alt="Chamber Choir">
-        <img src="media/choirs/Belle-Voix-Formal.webp" alt="Belle Voix Choir">
-        <img src="media/choirs/Una-Voce-Formal.webp" alt="Una Voce Choir">
+        <img src="../media/choirs/Vivace-Formal.webp" alt="Vivace Choir">
+        <img src="../media/choirs/Chamber-Formal.webp" alt="Chamber Choir">
+        <img src="../media/choirs/Belle-Voix-Formal.webp" alt="Belle Voix Choir">
+        <img src="../media/choirs/Una-Voce-Formal.webp" alt="Una Voce Choir">
       </div>
       <button class="prev">❮</button>
       <button class="next">❯</button>
@@ -81,13 +81,11 @@
     </div>
 
       <footer>
-        &copy;<span id="year"></span> | Thunder Ridge High School Choir | Mary Clayton-Smith
         <script>
           let choir = "Home";
-          document.getElementById("year").innerHTML = new Date().getFullYear();
         </script>
-          <script type="module" src="scripts/main.js"></script>
-          <script type="module" src="scripts/carousel.js"></script>
+          <script type="module" src="../scripts/main.js"></script>
+          <script type="module" src="../scripts/carousel.js"></script>
       </footer>
 </body>
 </html>

@@ -689,6 +689,7 @@ footer {
 
 .editBox {
     width: 80%;
+    max-width: 800px;
     height: 80%;
     background-color: #fff;
     display: flex;
@@ -903,6 +904,10 @@ div.performance-card {
 @media only screen and (min-width: 65.5em) {
     nav ul {
         flex-direction: row;
+    }
+
+    .dbEditor h1{
+        font-size: 6vw;
     }
 
     .shop p {
