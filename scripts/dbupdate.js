@@ -35,7 +35,7 @@ let performances = [];
 
 
 // 🔐 ALLOWED GOOGLE PROFILE (change this to the allowed email)
-const ALLOWED_USER = "samsmithsmusic@gmail.com";
+const ALLOWED_USER = ["samsmithsmusic@gmail.com","claytonm@d93mail.com"];
 
 // 🚀 Sign in with Google
 document.getElementById("login-btn").addEventListener("click", () => {
@@ -43,7 +43,7 @@ document.getElementById("login-btn").addEventListener("click", () => {
   signInWithPopup(auth, provider)
     .then((result) => {
       const user = result.user;
-      if (user.email === ALLOWED_USER) {
+      if (ALLOWED_USER.includes(user.email)) {
         message.innerText = "Success!";
         console.log("Access Granted:", user.email);
         document.getElementById("status").textContent = `Welcome, ${user.displayName}!`;
@@ -68,11 +68,11 @@ onAuthStateChanged(auth, (user) => {
     document.getElementById("login-btn").classList.add("hidden");
     document.getElementById("logout-btn").style.display ="inline";
 
-    if (user.email == ALLOWED_USER) {
+    if (ALLOWED_USER.includes(user.email)) {
       clearPerformances();
       // loadPerformances();
     }
-  } else if (user !== ALLOWED_USER && user !== null){
+  } else if (!ALLOWED_USER.includes(user.email) && user !== null){
     clearPerformances();
     
     message.innerText = "Access Denied. Unauthorized user.";
@@ -102,7 +102,7 @@ document.getElementById("logout-btn").addEventListener("click", () => {
 // 📌 Firestore Read/Write (only if authorized)
 async function writeData() {
   const user = auth.currentUser;
-  if (user && user.email === ALLOWED_USER) {
+  if (user && ALLOWED_USER.includes(user.email)) {
     await setDoc(doc(db, "users", user.uid), {
       name: user.displayName,
       email: user.email,
@@ -116,7 +116,7 @@ async function writeData() {
 
 async function readData() {
   const user = auth.currentUser;
-  if (user && user.email === ALLOWED_USER) {
+  if (user && ALLOWED_USER.includes(user.email)) {
     const docSnap = await getDoc(doc(db, "users", user.uid));
     if (docSnap.exists()) {
       console.log("User Data:", docSnap.data());
@@ -131,7 +131,7 @@ async function readData() {
 // Load Performances on Login
 async function loadPerformances() {
   const user = auth.currentUser;
-  if (user == null || user.email !== ALLOWED_USER) {
+  if (user == null || !ALLOWED_USER.includes(user.email)) {
     return;
   }
 
@@ -362,7 +362,7 @@ function getFormStructure(performance, choirs, concerts, years) {
 
 async function submitEdits(data,performance) {
   const user = auth.currentUser;
-  if (user && user.email === ALLOWED_USER) {
+  if (user && ALLOWED_USER.includes(user.email)) {
     try {
       let docRef = doc(db, "performances", performance.id);
       await setDoc(docRef, data);
@@ -382,7 +382,7 @@ async function submitEdits(data,performance) {
 
 async function deleteData(performance) {
   const user = auth.currentUser;
-  if (user && user.email === ALLOWED_USER) {
+  if (user && ALLOWED_USER.includes(user.email)) {
     try {
       let docRef = doc(db, "performances", performance.id);
       await deleteDoc(docRef);
@@ -402,7 +402,7 @@ async function deleteData(performance) {
 
 function createEntry() {
   const user = auth.currentUser;
-  if (user == null || user.email !== ALLOWED_USER) {
+  if (user == null || !ALLOWED_USER.includes(user.email)) {
     message.innerText = "Unauthorized Request.";
     return;
   }
@@ -474,7 +474,7 @@ function createEntry() {
 
 async function submitNew(data) {
   const user = auth.currentUser;
-  if (user && user.email === ALLOWED_USER) {
+  if (user && ALLOWED_USER.includes(user.email)) {
     try {
       await addDoc(collection(db, "performances"), data);
       console.log("Performance Added!");

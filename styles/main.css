@@ -690,8 +690,8 @@ footer {
 .dbEditor {
     display: flex;
     flex-direction: column;
+    /* flex-grow: 1; */
     align-items: center;
-    height: 100vh;
     width: 100vw;
 }
 
@@ -938,6 +938,13 @@ div.performance-card {
 @media only screen and (min-width: 65.5em) {
     nav ul {
         flex-direction: row;
+    }
+
+    .dbapp h3{
+        font-size: 225%;
+    }
+    .dbapp h4 {
+        font-size: 150%;
     }
 
     .dbEditor h1{
