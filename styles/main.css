@@ -377,6 +377,8 @@ h1 {
     color: var(--black);
     text-decoration: none;
     margin: 0;
+    padding: 10%;
+    font-weight: 600;
 }
 
 h2 {
