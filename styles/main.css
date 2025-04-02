@@ -343,8 +343,40 @@ h1 {
     font-size: 65px;
 }
 
+#gridly {
+    display: flex;
+    flex-direction: column;
+}
 #gridly h1 {
     margin: 20px;
+}
+
+#gridly div#director {
+    width: 10%;
+    height: 10%;
+    align-self: center;
+    text-align: center;
+    background-color: var(--lightgrey);
+    margin: 10px auto 40px auto;
+    min-height: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform .2s ease-in-out;
+}
+
+#gridly div#director:hover {
+    background-color: var(--offwhite);
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+#director a {
+    font-size: 1.3rem;
+    color: var(--black);
+    text-decoration: none;
+    margin: 0;
 }
 
 h2 {
