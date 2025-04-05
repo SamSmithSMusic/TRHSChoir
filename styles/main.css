@@ -833,6 +833,7 @@ div .dropDownLabel {
     padding: 3%;
     /* display: block; */
     margin: 10px 10px;
+    cursor: pointer;
 }
 
 
@@ -862,6 +863,7 @@ div .dropDownLabel {
     height: 15%;
     border-radius: 4px;
     font-size: 22px;
+    cursor: pointer;
 }
 .dbapp section>*{
     margin-bottom: 4%;
@@ -900,6 +902,7 @@ div.performance-card {
     width: 44px;
     height: auto;
     display: inline;
+    cursor: pointer;
 }
 .dbapp .modifiers {
     text-align: end;

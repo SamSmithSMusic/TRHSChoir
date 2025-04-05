@@ -456,8 +456,6 @@ window.onload = function() {
 };
 
 
-document.getElementById("write-btn").addEventListener("click", writeData);
-document.getElementById("read-btn").addEventListener("click", readData);
 document.querySelector("p.add").addEventListener("click", () => {createEntry();});
 
 // document.querySelector(".edit").addEventListener("click", () => {
