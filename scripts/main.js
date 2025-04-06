@@ -4,7 +4,7 @@ let headerhtml = `
     <nav>
         <ul id="menu">
         <li><a id="toggleMenu">&equiv;</a></li>
-        <li><a href="../Home">Home</a></li>
+        <li><a href="../index.html">Home</a></li>
         <li><a href="../Calendar">Calendar</a></li>
         <li class="dropdown">
           <a href="#" class="droptn">Choirs &#9662;</a>
