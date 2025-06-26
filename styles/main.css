@@ -314,7 +314,7 @@ nav ul li a:hover {
   
   button {
     position: absolute;
-    top: 50%;
+    top: 9vw;
     transform: translateY(-50%);
     background: var(--offwhite);
     border: none;
