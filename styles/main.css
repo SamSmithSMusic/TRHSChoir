@@ -637,12 +637,33 @@ footer {
     justify-content: center;
 }
 
-#cars iframe {
+#cars a {
     width: 250px;
-    height: auto;
+    height: 140px;
     box-shadow: 0 0 60px var(--darkblue);
     margin: .5rem;
     border: none;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+#cars a:hover {
+    transform: scale(1.05);
+}
+
+#cars a .newT {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 50%;
+    z-index: 6;
+    width: 64px;
+    height: auto;
+}
+
+#cars a img {
+    width: 100%;
+    height: auto;
 }
 
 

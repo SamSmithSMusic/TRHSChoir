@@ -53,11 +53,14 @@ const sortBy = (cars) => {
     else if (choir == "Performance Archive")
     {
     switch (filter) {
-        case "2022":
-            displayCars(cars.filter(car => car.Year.includes('2022')), carsElement);
-            break;
-        case "2023":
-            displayCars(cars.filter(car => car.Year.includes('2023')), carsElement);
+        // case "2022":
+        //     displayCars(cars.filter(car => car.Year.includes('2022')), carsElement);
+        //     break;
+        // case "2023":
+        //     displayCars(cars.filter(car => car.Year.includes('2023')), carsElement);
+        //     break;
+        case "2025":
+            displayCars(cars.filter(car => car.Year.includes('2025')), carsElement);
             break;
         case "2024":
             displayCars(cars.filter(car => car.Year.includes('2024')), carsElement);
@@ -83,22 +86,35 @@ const displayCars = (carList, carsElement) => {
     carList.forEach(car => {
 
         if (car.Source != "0") {
+
+            let sources = car.Source.split("/");
+            let id = sources[sources.indexOf("d") + 1];
+
             let ar = document.createElement('article');
             let h3 = document.createElement('h3');
             let frame = document.createElement('iframe');
+            let link = document.createElement('a');
+            let thumb = document.createElement('img');
+            let newT = document.createElement('img');
             let p = document.createElement('p');
-    
+
             h3.innerHTML = `${car.Concert} ${car.Year}`;
-            frame.setAttribute('src',car.Source);
-            frame.setAttribute('width','100%');
-            frame.setAttribute('height','100%');
-            frame.setAttribute('autoplay','allow');
-            frame.setAttribute('loading','lazy');
-            frame.setAttribute('alt',`${car.Concert} ${car.Year} Video`);
+            link.setAttribute('href',car.Source);
+            link.setAttribute('target','_blank');
+            link.setAttribute('width','100%');
+            link.setAttribute('height','100%');
+            thumb.setAttribute('loading','lazy');
+            thumb.setAttribute('alt',`${car.Concert} ${car.Year} Thumbnail`);
+            thumb.setAttribute('src',`https://drive.google.com/thumbnail?id=${id}`);
+            newT.setAttribute('src','../media/newTab.png');
+            newT.setAttribute('alt',"New Tab Button to open performance.");
+            newT.setAttribute('class','newT');
             p.innerHTML = `Song: ${car.Song}<br>Choir: ${car.Choir}<br>Credit: ${car.Credit}`;
-    
+            
+            link.append(thumb);
+            link.append(newT);
             ar.appendChild(h3);
-            ar.appendChild(frame);
+            ar.appendChild(link);
             ar.appendChild(p);
             carsElement.appendChild(ar);
         }
