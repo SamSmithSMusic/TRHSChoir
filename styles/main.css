@@ -321,6 +321,10 @@ nav ul li a:hover {
     font-size: 24px;
     cursor: pointer;
   }
+
+  button.home {
+    top: 50%;
+  }
   
   .prev {
     left: 0;
