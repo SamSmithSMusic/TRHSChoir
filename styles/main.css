@@ -8,16 +8,19 @@
 :root {
     --lightblue: #1D77AD;
     --darkblue: #1A5C81;
-    --offwhite: #ECECEC;
-    --black: #141414;
+    --offwhite: #fff;
+    --black: #0e0e0e;
     --lightgrey: #AAA;
     --darkgrey: #303030;
 }
 
+
+
 /* HTML Selectors */
 body {
-    font-family: 'Roboto', Helvetica, sans-serif;
-    background-color: var(--darkgrey);
+    font-family: century-gothic, sans-serif;
+    /* font-family: 'Roboto', Helvetica, sans-serif; */
+    background-color: var(--offwhite);
 }
 
 header {
@@ -29,7 +32,7 @@ header img {
 }
 
 nav {
-    background-color: var(--black);
+    background-color: var(--offwhite);
     width: 100%;
     top: 0;
 }
@@ -71,9 +74,13 @@ nav ul li a {
     padding: 5px 20px;
     text-decoration: none;
     font-weight: 600;
-    color: var(--offwhite);
+    color: var(--black);
     text-align: center;
     font-family: 'Arial Narrow', Arial, sans-serif;
+}
+
+nav ul li #toggleMenu{
+    font-size: 40px;
 }
 
 nav ul li a:hover {
@@ -84,52 +91,51 @@ nav ul li a:hover {
 #indexbody {
     display: grid;
     grid-template-rows: auto;
-    grid-template-columns: 4vw 1fr 1vw 1fr 4vw;
+    grid-template-columns: 4vw 1fr 4vw 1fr 4vw;
+    width: 80%;
+    margin: 0 auto;
 }
 
 #indexbody h1 {
-    font-size: 7vw;
+    font-size: 6.8vw;
     grid-column: 1/6;
+    margin: 10vw auto 0 auto;
 }
 
 #indexbody .quote {
-    grid-column: 2/5;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    display: grid;
-    grid-template-rows: auto auto auto;
-    grid-template-columns: 100%;
+    grid-column: 1/6;
+    margin-top: 10vw;
 }
 
 #indexbody .quote h2 {
     font-size: 6vw;
-    padding: 1vw;
-    color: var(--offwhite);
+    color: var(--black);
     font-style: italic;
     font-weight: 100;
     text-align: center;
+    margin: 0;
+    text-align: left;
 }
 
 #indexbody .quote p {
     font-size: 3vw;
     text-align: right;
     background: none;
-    color: var(--offwhite);
+    color: var(--black);
     margin: 0px;
     padding: 0px;
 }
 
 #indexbody p {
     grid-column: 1/6;
-    margin: 2vw 4vw;
-    padding: 2vw 2vw;
-    background-color: var(--lightgrey);
-    font-size: 4vw;
+    margin: 10vw auto 5vw auto;
+    font-size: 5vw;
 }
 
-#indexbody #instapage {
-    grid-column: 2/5;
+#instapage {
+    grid-column: 1/6;
     width: 100%;
-    margin-bottom: 3vw;
+    margin: 5vw auto 5vw auto;
 }
 
 #indexbody #facepage {
@@ -149,6 +155,51 @@ nav ul li a:hover {
     justify-content: center;
     text-align: center;
 }
+
+#ChoirsBody {
+    width: 85%;
+    margin: 5vw auto;
+    line-height:30px;
+    font-size: 16px;
+}
+
+#ChoirsBody h1 {
+    font-size: 35px;
+    grid-column: 1/6;
+    margin: 0 auto 10vw auto;
+}
+
+#ChoirsBody article:first-of-type {
+    margin-top: 7vw;
+}
+
+#ChoirsBody article {
+    margin: 10vw auto 0vw auto;
+}
+
+#ChoirsBody article h3 {
+    font-size: 25px;
+    margin-bottom: 5vw;
+    font-weight: 600;
+}
+
+#ChoirsBody #Conductor h3 {
+    text-align: center;
+}
+
+#ChoirsBody #Conductor {
+    display: flex;
+    flex-direction: column;
+}
+
+#ChoirsBody img {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 2vw auto;
+    height: auto;
+}
+
+
 
 /* Styles for dropdown */
 
@@ -195,15 +246,12 @@ nav ul li a:hover {
  /* Shop Button Styles */
 
  .shop {
-    margin: 5vw 5vw 5vw 5vw;
-    padding: 40px 20px;
+    margin: 0vw auto 8vw auto;
     width: 90%;
-    height: 100%;
     display: grid;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: var(--darkblue);
 }
 
 .shop desc {
@@ -216,12 +264,39 @@ nav ul li a:hover {
 
 .shop p {
     font-size: 5vw;
-    background-color: var(--lightgrey);
     margin: 2vw;
     padding: 3vw 1vw;
 }
 
- .glow-on-hover {
+#tickets button {
+    margin: 0 auto;
+    grid-row: 3/4;
+    width: 60%;
+    height: 15vw;
+    font-size: 8vw;
+    border: none;
+    outline: none;
+    color: var(--offwhite);
+    background: var(--darkgrey);
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    grid-row: 3/4;
+    top: 0;
+    transform: translate(0);
+}
+
+#tickets button img {
+    margin-right: 2vw;
+    width: 20%;
+}
+
+ /* .glow-on-hover {
     place-self: center;
     grid-row: 3/4;
     width: 60vw;
@@ -290,14 +365,16 @@ nav ul li a:hover {
     0% { background-position: 0 0; }
     50% { background-position: 400% 0; }
     100% { background-position: 0 0; }
-}
+} */
 
 /* Carousel Styles */
 .carousel {
-    width: 100%; /* Set your desired carousel width */
+    width: 90%; 
     overflow: hidden;
     position: relative;
-    border: 20px solid var(--darkblue);
+    /* border: 20px solid var(--darkblue); */
+    border: none;
+    margin: 0vw auto;
   }
   
   .slides {
@@ -327,11 +404,11 @@ nav ul li a:hover {
   }
   
   .prev {
-    left: 0;
+    left: 10px;
   }
   
   .next {
-    right: 0;
+    right: 10px;
   }
   
 
@@ -343,8 +420,8 @@ h2 {
 }
 
 h1 {
-    color: var(--offwhite);
-    font-size: 65px;
+    color: var(--black);
+    font-weight: 100;
 }
 
 #gridly {
@@ -352,6 +429,7 @@ h1 {
     flex-direction: column;
 }
 #gridly h1 {
+    font-size: 300%;
     margin: 20px;
 }
 
@@ -465,7 +543,7 @@ dd {
 
 footer {
     background-color: var(--darkblue);
-    color: white;
+    color: var(--offwhite);
     padding: 15px;
     text-align: center;
     width: 100%;
@@ -581,18 +659,19 @@ footer {
     appearance: none;
     display: flex;
     padding: .5rem;
-    background-color: var(--offwhite);
-    color: var(--darkgrey);
+    background-color: var(--lightgrey);
+    color: var(--black);
     font-weight: 700;
     font-size: large;
     margin: 1rem auto;
     width: 200px;
-    border: 1px solid var(--darkblue);
+    border: none;
     text-align: center;
+    transition: transform .2s ease-in-out;
 }
 
 #sortBy:hover {
-    background-color: var(--lightgrey);
+    transform: scale(1.1);
 }
 
 #sortBy option:disabled {
@@ -620,7 +699,6 @@ footer {
 #cars article {
     height: auto;
     margin: .5rem;
-    border: 1px solid rgba(0, 0, 0, .1);
     padding: 1rem;
     background-color: var(--offwhite);
     display: flex;
@@ -630,21 +708,25 @@ footer {
 }
 
 #brands article {
+    width: 85%;
     height: auto;
-    margin: .5rem;
-    border: 1px solid rgba(0, 0, 0, .1);
+    margin: .5rem auto;
     padding: 1rem;
     background-color: var(--offwhite);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
+}
+#brands article p{
+    margin: 0 auto 0 0;
+    text-align: left;
 }
 
 #cars a {
     width: 250px;
     height: 140px;
-    box-shadow: 0 0 60px var(--darkblue);
+    box-shadow: 0 0 10px var(--darkblue);
     margin: .5rem;
     border: none;
     position: relative;
@@ -668,6 +750,15 @@ footer {
 #cars a img {
     width: 100%;
     height: auto;
+}
+
+#cars article p {
+    margin-top: .5rem;
+}
+
+#cars article h3 {
+    font-weight: 100;
+    margin-bottom: .5rem;
 }
 
 
@@ -849,7 +940,7 @@ div .dropDownLabel {
 
 .dbEditor .btn{
     color: var(--darkgrey);
-    background-color: var(--offwhite);
+    background-color: var(--lightgrey);
     border-radius: 10px;
     
     font-size: 18px;
@@ -963,8 +1054,25 @@ div.performance-card {
  }
 
 @media only screen and (min-width: 65.5em) {
+    .carousel{
+        margin-top: 2vw;
+        width: 80%;
+        max-width: 1200px;
+    }
+
+    header img{
+        width: 100%;
+    }
+
     nav ul {
         flex-direction: row;
+    }
+    nav ul li a{
+        transition: transform .2s ease-in-out;
+        font-size: 1vw;
+    }
+    nav ul a:hover {
+        transform: scale(1.1);
     }
 
     .dbapp h3{
@@ -975,7 +1083,7 @@ div.performance-card {
     }
 
     .dbEditor h1{
-        font-size: 6vw;
+        font-size: 600%;
     }
 
     .shop p {
@@ -998,18 +1106,54 @@ div.performance-card {
         display: none;
     }
 
+    #indexbody {
+        max-width: 1800px;
+    }
+    #indexbody h1 {
+        font-size: 400%;
+        margin: 3vw auto 0 auto;
+    }
+
     #indexbody p {
-        font-size: 2.5vw;
+        font-size: 1.5vw;
+        grid-column: 1/3;
+        margin: 3vw 0 0 0;
+    }
+
+    #indexbody .quote{
+        margin: 7vw auto 0 auto;
+        width: 100%;
+        grid-column: 1/3;
+    }
+
+    #indexbody .quote h2{
+        font-size: 250%;
+        margin-bottom: 0;
+    }
+
+    #indexbody .quote p{
+        font-size: 150%;
     }
 
     #indexbody #instapage {
-        grid-column: 2/5;
+        grid-column: 4/6;
+        grid-row: 2/4;
+        margin: 2vw auto 1vw auto;
     }
 
     #indexbody #facepage {
         grid-column: 4/5;
+        
     }
 
+    div.carousel button{
+        font-size: 4vw;
+    }
+
+    #calendar h1 {
+        margin-top: 2vw;
+        font-size: 2vw;
+    }
 
     .class-header {
         grid-template-columns: auto;
@@ -1041,14 +1185,111 @@ div.performance-card {
         max-width: fit-content;
     }
 
-    #indexbody .quote h2 {
-        font-size: 3vw;
-    }
-
-    #indexbody p {
-        font-size: 2vw;
-    }
+    .responsive-iframe-container {
+    width: 80%;
+    height: 80%;
+    margin: 2vw auto 2vw auto;
+ }
 
 
+ #ChoirsBody {
+    margin: 3vw auto;
+    max-width: 1200px;
+    line-height: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2vw;
+    align-items: start;
+    margin-bottom: 3rem;
+}
 
+#ChoirsBody h1 {
+    font-size: 300%;
+    grid-column: 1/4;
+    margin: 0 auto 2vw auto;
+}
+
+#ChoirsBody article:first-of-type {
+    margin-top: 2vw;
+}
+
+#ChoirsBody article {
+    margin: 2vw auto 0vw auto;
+    display: block;
+    width: 90%;
+}
+
+#ChoirsBody article h3 {
+    font-size:200%;
+    margin-bottom: 2vw;
+    font-weight: 600;
+}
+
+#ChoirsBody #Conductor p {
+    grid-column: 1;
+}
+
+#ChoirsBody #Conductor h3 {
+    text-align: center;
+    grid-column: 1/4;
+}
+
+#ChoirsBody #Conductor img {
+    grid-column: 3;
+    grid-row: 2/5;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#ChoirsBody #Conductor{
+    grid-column: 1/4;
+    display: grid;
+    grid-template-columns: 1fr 1vw 1fr;
+    grid-gap: 1vw;
+}
+
+#ChoirsBody p {
+    font-size: 100%;
+}
+
+#ChoirsBody img {
+    width: 100%;
+    height: auto;
+}
+
+
+.shop h1{
+    font-size: 500%;
+}
+
+.shop p{
+    margin: .5vw auto 1vw auto;
+    padding: 0;
+    font-size: 200%;
+}
+
+#tickets button{
+    width: 10%;
+    font-size: 50px;
+    height: 6vw;
+}
+
+#tickets button img {
+    width: 50%;
+    margin: 0 auto;
+}
+
+#pDisclaim{
+    font-size: 16px;
+    padding: 1vw;
+}
+
+}
+
+@font-face {
+  font-family: 'Century Gothic';
+  src: url('fonts/CenturyGothic.woff2') format('woff2'), /* Add other formats */
+       url('fonts/CenturyGothic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
