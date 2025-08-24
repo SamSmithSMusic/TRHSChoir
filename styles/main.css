@@ -25,16 +25,26 @@ body {
 
 header {
     background-color: var(--offwhite);
+    position: fixed;
+    top: 0;
+    height: 24vw;
+    width: 100%;
+    z-index: 3;
 }
 
 header img {
- width: 100%;
+    position: absolute;
+    width: 22vw;
+    height: auto;
+    left: 3vw;
+    top: 3vw;
 }
 
 nav {
-    background-color: var(--offwhite);
+    background-color: var(--darkgrey);
     width: 100%;
     top: 0;
+    margin: 24vw auto 0 auto;
 }
 
 #sopAlt {
@@ -42,30 +52,32 @@ nav {
 }
 
 nav ul {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     width: 100%;
     margin: 0 auto;
+    padding: 2vw 0;
 }
 
 nav ul li {
     flex: 1 1 auto;
-}
-
-nav ul li:first-child {
-    display: block;
-    font-size: 2rem;
-}
-
-nav ul li:first-child a {
-    padding: 1px 10px;
-}
-
-nav ul li {
-    display: none;
+    width: 90%;
+    min-height: 44px;
+    background-color: var(--offwhite);
     list-style: none;
     margin: 10px 20px;
+    padding: 1.5vw;
+}
+
+a#toggleMenu {
+    display: block;
+    font-size: 2rem;
+    position: absolute;
+    font-size: 13vw;
+    text-align: right;
+    top: 3vw;
+    right: 5vw;
 }
 
 nav ul li a {
@@ -77,10 +89,6 @@ nav ul li a {
     color: var(--black);
     text-align: center;
     font-family: 'Arial Narrow', Arial, sans-serif;
-}
-
-nav ul li #toggleMenu{
-    font-size: 40px;
 }
 
 nav ul li a:hover {
@@ -158,7 +166,7 @@ nav ul li a:hover {
 
 #ChoirsBody {
     width: 85%;
-    margin: 5vw auto;
+    margin: 28vw auto 5vw auto;
     line-height:30px;
     font-size: 16px;
 }
@@ -296,77 +304,6 @@ nav ul li a:hover {
     width: 20%;
 }
 
- /* .glow-on-hover {
-    place-self: center;
-    grid-row: 3/4;
-    width: 60vw;
-    height: 15vw;
-    font-size: 8vw;
-    border: none;
-    outline: none;
-    color: var(--offwhite);
-    background: var(--black);
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.glow-on-hover img {
-    width: 10vw;
-}
-
-.glow-on-hover:before {
-    content: '';
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-    position: absolute;
-    top: -2px;
-    left:-2px;
-    background-size: 400%;
-    z-index: -1;
-    filter: blur(5px);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    animation: glowing 20s linear infinite;
-    opacity: 1;
-    transition: opacity .3s ease-in-out;
-    border-radius: 10px;
-}
-
-.glow-on-hover:active {
-    color: var(--black)
-}
-
-.glow-on-hover:active:after {
-    background: transparent;
-}
-
-.glow-on-hover:hover:before {
-    opacity: 1;
-}
-
-.glow-on-hover:after {
-    z-index: -1;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #111;
-    left: 0;
-    top: 0;
-    border-radius: 10px;
-}
-
-@keyframes glowing {
-    0% { background-position: 0 0; }
-    50% { background-position: 400% 0; }
-    100% { background-position: 0 0; }
-} */
-
 /* Carousel Styles */
 .carousel {
     width: 90%; 
@@ -374,7 +311,8 @@ nav ul li a:hover {
     position: relative;
     /* border: 20px solid var(--darkblue); */
     border: none;
-    margin: 0vw auto;
+    margin: 28vw auto 1vmin auto;
+    z-index: 2;
   }
   
   .slides {
@@ -427,6 +365,7 @@ h1 {
 #gridly {
     display: flex;
     flex-direction: column;
+    margin-top: 25vw;
 }
 #gridly h1 {
     font-size: 300%;
@@ -552,11 +491,12 @@ footer {
 
 /* Class Selectors */
 .active {
-    border-bottom: 1px solid var(--lightblue);
+    /* border-bottom: 1px solid var(--darkblue); */
+    text-decoration:underline;
 }
 
-.open li {
-    display: block;
+.open {
+    display: flex;
 }
 
 .block {
@@ -1060,12 +1000,37 @@ div.performance-card {
         max-width: 1200px;
     }
 
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 4vw;
+    }
+
     header img{
-        width: 100%;
+        width: 4vw;
+        height: auto;
+        position: relative;
+    }
+
+    header #toggleMenu {
+        display: none;
+    }
+
+    nav {
+        width: 40%;
+        margin: 0;
+        height: auto;
+        background-color: var(--offwhite);
     }
 
     nav ul {
         flex-direction: row;
+        padding: 0;
+    }
+    nav ul li {
+        padding: 0;
     }
     nav ul li a{
         transition: transform .2s ease-in-out;
@@ -1088,14 +1053,6 @@ div.performance-card {
 
     .shop p {
         font-size: 2.5vw;
-    }
-
-    nav ul li:first-child {
-        display: none;
-    }
-
-    .dropdown-content > li:first-child {
-        display: block;
     }
 
     nav ul li {

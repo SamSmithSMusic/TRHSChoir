@@ -1,15 +1,12 @@
 //header and footer
 let headerhtml = `
-<img id="banner" src="../media/trhschoir-logo.webp" alt="TRHS Choir Logo">
+<img id="banner" src="../media/TR-Logo-Button.webp" alt="TRHS Choir Logo">
+<a id="toggleMenu">☰</a>
     <nav>
         <ul id="menu">
-        <li><a id="toggleMenu">&equiv;</a></li>
         <li><a href="../index.html">Home</a></li>
-        <li><a href="../Calendar">Calendar</a></li>
         <li><a href="../Choirs">Who We Are</a></li>
-        <li><a href="../Tickets">Upcoming Performances</a></li>
         <li><a href="../Repertoire">Repertoire</a></li>
-        <li><a href="../Performances">Performance Archive</a></li>
         </ul>
     </nav>
 `
@@ -47,6 +44,13 @@ document.querySelector('#year').textContent = new Date().getFullYear();
 // toggle menu in small view
 const toggleMenu = () => {
     document.querySelector('#menu').classList.toggle('open');
+    let currentSymbol = document.querySelector('#toggleMenu');
+    if (currentSymbol.innerText == "☰") {
+        currentSymbol.innerText = "✖";
+    }
+    else if (currentSymbol.innerText == "✖") {
+        currentSymbol.innerText = "☰";
+    }
 }
 document.querySelector('#toggleMenu').addEventListener('click', toggleMenu);
 
