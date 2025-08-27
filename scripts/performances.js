@@ -1,5 +1,8 @@
 import {auth, db, provider, getPerformances} from "../scripts/firebaseCall.js";
 
+const params = new URLSearchParams(window.location.search);
+console.log(params.get("key"));
+
 const brandsElement = document.querySelector('#brands');
 const carsElement = document.querySelector("#cars");
 let carList = [];
@@ -17,10 +20,10 @@ const getCars = async () => {
     {
         displayBrands(carList, brandsElement);
     } 
-    else
-    {
-        displayCars(carList.filter(car => car.Choir.includes(choir)), carsElement);
-    }
+    // else
+    // {
+    //     displayCars(carList.filter(car => car.Choir.includes(choir)), carsElement);
+    // }
 }
 
 const reset = (element) => {
