@@ -1,10 +1,19 @@
 import {auth, db, provider, getPerformances} from "../scripts/firebaseCall.js";
 
 const params = new URLSearchParams(window.location.search);
-let keyLib = params.get("key").split(' ');
-let year = keyLib.pop();
-let choir = keyLib.join(' ');
-let searchQuery = [choir,year];
+const key = params.get("key");
+
+let searchQuery = [];
+
+if (key) {
+  let keyLib = key.split(' ');
+  let year = keyLib.pop();
+  let choir = keyLib.join(' ');
+  let searchQuery = [choir, year];
+}
+else {
+ let searchQuery = [];
+}
 
 const performancesElement = document.querySelector('#performances');
 const yearsDrop = document.querySelector('#sortYear');
