@@ -1,7 +1,6 @@
 import {auth, db, provider, getPerformances} from "../scripts/firebaseCall.js";
 
 const repertoireElement = document.querySelector('#repertoire');
-const performancesElement = document.querySelector('performances');
 const yearsDrop = document.querySelector('#sortYear')
 const choirsDrop = document.querySelector('#sortChoir')
 let performances = [];

@@ -608,10 +608,10 @@ footer {
 
 .filters {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
-.filters select {
+.filters select, .filters a{
     /* appearance: none; */
     display: flex;
     padding: .5rem;
@@ -619,16 +619,22 @@ footer {
     color: var(--black);
     font-weight: 700;
     font-size: large;
-    margin: 1rem auto;
-    width: 200px;
+    margin: 1rem 5%;
+    min-height: 44px;
+    width: 80%;
     border: none;
     text-align: center;
+}
+
+.filters a {
+    text-decoration: none;
+    justify-content: center;
     transition: transform .1s ease-in-out;
 }
 
-/* .filters select:hover {
+.filters a:hover {
     transform: scale(1.1);
-} */
+}
 
 .filters select option:disabled {
     font-style: italic;
@@ -637,7 +643,7 @@ footer {
     color: var(--offwhite);
 }
 
-#cars {
+#performances {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: .5rem;
@@ -652,7 +658,7 @@ footer {
     margin-bottom: 3rem;
 }
 
-#cars article {
+#performances article {
     height: auto;
     margin: .5rem;
     padding: 1rem;
@@ -704,7 +710,7 @@ footer {
     position: relative;
 } 
 
-#cars a {
+#performances a {
     width: 250px;
     height: 140px;
     box-shadow: 0 0 10px var(--darkblue);
@@ -714,11 +720,11 @@ footer {
     transition: transform 0.3s ease;
 }
 
-#cars a:hover {
+#performances a:hover {
     transform: scale(1.05);
 }
 
-#cars a .newT {
+#performances a .newT {
     position: absolute;
     top: 0;
     right: 0;
@@ -728,16 +734,16 @@ footer {
     height: auto;
 }
 
-#cars a img {
+#performances a img {
     width: 100%;
     height: auto;
 }
 
-#cars article p {
+#performances article p {
     margin-top: .5rem;
 }
 
-#cars article h3 {
+#performances article h3 {
     font-weight: 100;
     margin-bottom: .5rem;
 }
@@ -1044,7 +1050,11 @@ a#performances {
 }
 
 
-
+#gridly input {
+    width: 90%;
+    margin: 0 auto;
+    font-size: 20px;
+}
 
 
 
@@ -1069,16 +1079,22 @@ a#performances {
         margin-top: 80px;
     }
 
+    #gridly input {
+        width: calc(400px + 10%);
+    }
+
     .filters {
     flex-direction: row;
     justify-content: space-around;
     }
 
-    #sortYear {
+    .filters select:first-of-type, .filters a:first-of-type {
         margin: 1rem 5% 1rem auto;
+        width: 200px;
     }
-    #sortChoir {
+    .filters select:last-of-type, .filters a:last-of-type {
         margin: 1rem auto 1rem 5%;
+        width: 200px;
     }
 
     header {

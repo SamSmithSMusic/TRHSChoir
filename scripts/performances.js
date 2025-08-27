@@ -1,96 +1,47 @@
 import {auth, db, provider, getPerformances} from "../scripts/firebaseCall.js";
 
 const params = new URLSearchParams(window.location.search);
-console.log(params.get("key"));
+let keyLib = params.get("key").split(' ');
+let year = keyLib.pop();
+let choir = keyLib.join(' ');
+let searchQuery = [choir,year];
 
-const brandsElement = document.querySelector('#brands');
-const carsElement = document.querySelector("#cars");
-let carList = [];
-// let choir = document.title.split('|').map(item => item.trim()).pop();
+const performancesElement = document.querySelector('#performances');
+const yearsDrop = document.querySelector('#sortYear');
+const concertDrop = document.querySelector('#sortConcert');
+const searchBar = document.querySelector('#search');
+let performances = [];
+let years = [];
+let concerts = [];
 
-
-const getCars = async () => {
-    // const response = await fetch('media/performances.json');
-    carList = await getPerformances();
-    if (choir == "Performance Archive")
-    {
-        displayCars(carList, carsElement);
-    }
-    else if (choir == "Repertoire")
-    {
-        displayBrands(carList, brandsElement);
-    } 
-    // else
-    // {
-    //     displayCars(carList.filter(car => car.Choir.includes(choir)), carsElement);
-    // }
+const populatePerformances = async () => {
+    let prePerfs = await getPerformances();
+    performances = await indexPerformances(prePerfs);
+    search(searchQuery);
+    populateFilters(performances);
 }
 
-const reset = (element) => {
-    element.innerHTML = '';
-} 
+const indexPerformances = (performances) => {
+    let newPs = [];
 
-const sortBy = (cars) => {
-
-    if (choir == "Repertoire")
-    {
-        reset(brandsElement);
-    }
-    else 
-    {
-        reset(carsElement);
-    }
-
-    let filter = document.querySelector('#sortBy').value;
-
-    if (filter == "all" && choir != "Performance Archive" && choir != "Repertoire")
-    {
-        displayCars(carList.filter(car => car.Choir.includes(choir)), carsElement);
-    }
-
-    else if (choir != "Performance Archive" && choir != "Repertoire" && filter != "all")
-    {
-        displayCars(cars.filter(car => car.Year.includes(filter) && car.Choir.includes(choir)), carsElement);
-    }
-
-    else if (choir == "Performance Archive")
-    {
-    switch (filter) {
-        // case "2022":
-        //     displayCars(cars.filter(car => car.Year.includes('2022')), carsElement);
-        //     break;
-        // case "2023":
-        //     displayCars(cars.filter(car => car.Year.includes('2023')), carsElement);
-        //     break;
-        case "2025":
-            displayCars(cars.filter(car => car.Year.includes('2025')), carsElement);
-            break;
-        case "2024":
-            displayCars(cars.filter(car => car.Year.includes('2024')), carsElement);
-            break;
-        case "all":
-            displayCars(cars, carsElement);
-            break;
-    }
-    }
-
-    else if (choir == "Repertoire" && filter == "all")
-    {
-        displayBrands(cars,brandsElement);
-    }
-
-    else if (choir == "Repertoire")
-    {
-        displayBrands(cars.filter(car => car.Year.includes(filter)),brandsElement);
-    }
+    performances.forEach(performance => {
+        if (performance.Source != "0") {
+            performance.Search = `${performance.Year} ${performance.Choir} ${performance.Song} ${performance.Credit} ${performance.Concert}`;
+            newPs.push(performance);
+        }
+    })
+    return newPs;
 }
 
-const displayCars = (carList, carsElement) => {
-    carList.forEach(car => {
+const displayPerformances = (searchedPs) => {
 
-        if (car.Source != "0") {
+    performancesElement.innerHTML = '';
+    
+    searchedPs.forEach(performance => {
 
-            let sources = car.Source.split("/");
+        if (performance.Source != "0") {
+
+            let sources = performance.Source.split("/");
             let id = sources[sources.indexOf("d") + 1];
 
             let ar = document.createElement('article');
@@ -101,61 +52,89 @@ const displayCars = (carList, carsElement) => {
             let newT = document.createElement('img');
             let p = document.createElement('p');
 
-            h3.innerHTML = `${car.Concert} ${car.Year}`;
-            link.setAttribute('href',car.Source);
+            h3.innerHTML = `${performance.Concert} ${performance.Year}`;
+            link.setAttribute('href',performance.Source);
             link.setAttribute('target','_blank');
             link.setAttribute('width','100%');
             link.setAttribute('height','100%');
             thumb.setAttribute('loading','lazy');
-            thumb.setAttribute('alt',`${car.Concert} ${car.Year} Thumbnail`);
+            thumb.setAttribute('alt',`${performance.Concert} ${performance.Year} Thumbnail`);
             thumb.setAttribute('src',`https://drive.google.com/thumbnail?id=${id}`);
             newT.setAttribute('src','../media/newTab.png');
             newT.setAttribute('alt',"New Tab Button to open performance.");
             newT.setAttribute('class','newT');
-            p.innerHTML = `Song: ${car.Song}<br>Choir: ${car.Choir}<br>Credit: ${car.Credit}`;
+            p.innerHTML = `Song: ${performance.Song}<br>Choir: ${performance.Choir}<br>Credit: ${performance.Credit}`;
             
             link.append(thumb);
             link.append(newT);
             ar.appendChild(h3);
             ar.appendChild(link);
             ar.appendChild(p);
-            carsElement.appendChild(ar);
-        }
-
-    });
+            performancesElement.appendChild(ar);
+        }});
 }
 
-const displayBrands = (carList, brandsElement) => {
-    const groupedData = {};
-
-    // Group the data by Choir and Year
-    carList.forEach(car => {
-        const key = `${car.Choir}-${car.Year}`;
-        if (!groupedData[key]) {
-            groupedData[key] = [];
+const populateFilters = (performances) => {
+    // Make lists
+    performances.forEach(performance => {
+        if (!years.includes(performance.Year)) {
+            years.push(performance.Year);
         }
-        groupedData[key].push(car);
+        if (!concerts.includes(performance.Concert)) {
+            concerts.push(performance.Concert)
+        }
     });
 
-    // Loop through the grouped data and create articles for each Choir and Year combination
-    for (const key in groupedData) {
-        const choirYearData = groupedData[key];
 
-        let choirYearArticle = document.createElement('article');
-        let h3 = document.createElement('h3');
-        h3.innerHTML = choirYearData[0].Choir + ' ' + choirYearData[0].Year;
-        choirYearArticle.appendChild(h3);
+    // Years
+    years.forEach(year => {
+        let option = document.createElement('option');
+        option.setAttribute('value',`${year}`);
+        option.innerText = `${year}`;
 
-        let songsParagraph = document.createElement('p');
-        choirYearData.forEach(car => {
-            songsParagraph.innerHTML += `${car.Song} (${car.Credit})<br>`;
-        });
+        yearsDrop.appendChild(option);
+    })
 
-        choirYearArticle.appendChild(songsParagraph);
-        brandsElement.appendChild(choirYearArticle);
+    // Concerts
+    concerts.forEach(concert => {
+        let option = document.createElement('option');
+        option.setAttribute('value',`${concert}`);
+        option.innerText = `${concert}`;
+
+        concertDrop.appendChild(option);
+    })
+}
+
+const updateSearch = () => {
+    let searchkey = ''
+    if (yearsDrop.value != 'all' && concertDrop.value != 'all') {
+        searchkey = `${yearsDrop.value} ${concertDrop.value} ${searchBar.value}`
     }
-};
+    else if (concertDrop.value != 'all') {
+        searchkey = `${concertDrop.value} ${searchBar.value}`
+    }
+    else if (yearsDrop.value != 'all') {
+        searchkey = `${yearsDrop.value} ${searchBar.value}`
+    }
+    else {
+        searchkey = `${searchBar.value}`
+    }
+    search(searchkey.split(' '))
+}
 
-getCars();
+const search = (searchQuery) => {
+    // every for exact match, some for at least one
+    let searchedPs = performances.filter(performance => searchQuery.every(word => performance.Search.toLowerCase().includes(word.toLowerCase())));
+    displayPerformances(searchedPs);
+    if (searchedPs.length != 0) {
+        document.querySelector('#dissapoint').innerHTML = ''
+    }
+    else {
+        document.querySelector('#dissapoint').innerHTML = '<p>There are no performance videos available for the entered search.<br></br>Please check filters and search bar to try again.</p>'
+    }
+}
 
-document.querySelector("#sortBy").addEventListener("change", () => {sortBy(carList)});
+populatePerformances();
+yearsDrop.addEventListener("change", () => {updateSearch()});
+concertDrop.addEventListener("change", () => {updateSearch()});
+searchBar.addEventListener("input", () => {updateSearch()});

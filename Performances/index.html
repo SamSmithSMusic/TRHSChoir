@@ -33,17 +33,20 @@
   <main id="gridly">
     <h1 id="ph1">Performance Archive</h1>
 
-    <select id="sortBy" title="Choose a data filter.">
-      <option value="" disabled selected>Filter Year</option>
-      <!-- <option value="2022">2022</option>
-      <option value="2023">2023</option> -->
-      <option value="2024">2024</option>
-      <option value="2025">2025</option>
-      <option value="all">All Years</option>
-    </select>
+    <input type="text" name="searchBar" id="search" placeholder="Search archive by song, credit, concert, year, or choir."  ></input>
 
-    <div id="cars">
+    <div class="filters">
+        <select id="sortYear" title="Choose a year filter.">
+          <option value="all" selected>All Years</option>
+        </select>
+        <select id="sortConcert" title="Choose a concert filter.">
+          <option value="all" selected>All Concerts</option>
+        </select>
+        </div>
+
+    <div id="performances">
     </div>
+    <span id="dissapoint"></span>
     <p id="pDisclaim">This archive is incomplete and is continually being updated with more information, thank you for your patience.</p>
   </main>
 
