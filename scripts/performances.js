@@ -9,10 +9,7 @@ if (key) {
   let keyLib = key.split(' ');
   let year = keyLib.pop();
   let choir = keyLib.join(' ');
-  let searchQuery = [choir, year];
-}
-else {
- let searchQuery = [];
+  searchQuery = [choir, year];
 }
 
 const performancesElement = document.querySelector('#performances');
