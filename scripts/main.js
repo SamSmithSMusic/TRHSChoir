@@ -1,6 +1,11 @@
 //header and footer
 let headerhtml = `
-<img id="banner" src="../media/TR-Logo-Button.webp" alt="TRHS Choir Logo">
+<a id="banner">
+<picture>
+<source srcset="../media/trhschoir-logo.webp" media="(min-width: 800px)">
+<img src="../media/TR-Logo-Button.webp" alt="TRHS Choir Logo">
+</picture>
+</a>
 <a id="toggleMenu">☰</a>
     <nav>
         <ul id="menu">

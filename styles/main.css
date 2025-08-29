@@ -32,13 +32,30 @@ header {
     z-index: 3;
 }
 
-header img {
+header #banner {
     position: absolute;
     width: 22vw;
     height: auto;
     left: 3vw;
     top: 3vw;
 }
+
+header #banner picture {
+    height: auto;
+    width: auto;
+}
+
+header #banner img{
+    width: 100%;
+    height: auto;
+    position: relative;
+    border: none;
+    border-radius: 0;
+    top: 0;
+    left: 0;
+    box-shadow: none;
+}
+
 
 nav {
     background-color: var(--darkgrey);
@@ -1108,7 +1125,7 @@ a#performances {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        height: 60px;
+        height: 80px;
     }
 
     a#performances{
@@ -1132,13 +1149,31 @@ a#performances {
         justify-content: space-between;
     }
 
-    header img{
-        width: 40px;
+    header #banner {
+        width: 250px;
+        /* width: 70px; */
         height: auto;
+        margin: auto 0 auto 10px;
         position: relative;
         top: 0;
         left: 0;
-        margin: auto 0 auto 10px;
+    }
+
+    header #banner picture {
+        height: auto;
+        width: auto;
+        
+    }
+
+    header #banner img{
+        width: 100%;
+        height: auto;
+        position: relative;
+        border: none;
+        border-radius: 0;
+        top: 0;
+        left: 0;
+        box-shadow: none;
     }
 
     header #toggleMenu {
