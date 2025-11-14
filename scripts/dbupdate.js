@@ -29,7 +29,7 @@ let performances = [];
 const ALLOWED_USER = [
   "samsmithsmusic@gmail.com",
   "claytonm@d93mail.com",
-  "Axolotlbrown@gmail.com",
+  "axolotlbrown@gmail.com",
 ];
 
 // Sign in with Google
